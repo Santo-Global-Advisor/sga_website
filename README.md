@@ -2,7 +2,7 @@
 
 Multilingual Hugo site for Santo Global Advisory.
 
-The site is generated from Hugo templates, translated content files, shared data files, and a small progressive-enhancement JavaScript layer. The original exported HTML source used for the migration remains in [`zip/`](./zip/).
+The site is generated from Hugo templates, translated content files, shared data files, and a small progressive-enhancement JavaScript layer.
 
 ## Requirements
 
