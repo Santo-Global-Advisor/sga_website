@@ -1,0 +1,32 @@
+[language]
+other = "Langue"
+
+[book_consultation]
+other = "Réserver"
+
+[explore_services]
+other = "Voir les services"
+
+[full_program_detail]
+other = "Programme complet"
+
+[full_faq]
+other = "FAQ complète"
+
+[read_faq]
+other = "Lire la FAQ"
+
+[whatsapp_direct]
+other = "WhatsApp direct"
+
+[back_to_overview]
+other = "Retour à l'aperçu"
+
+[counsel]
+other = "Conseil"
+
+[open_menu]
+other = "Ouvrir le menu"
+
+[close_menu]
+other = "Fermer le menu"

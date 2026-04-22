@@ -1,0 +1,43 @@
+{{ define "main" }}
+  {{ $lang := .Site.Language.Lang }}
+  {{ $contact := index site.Data.contact $lang }}
+  {{ $categories := index site.Data.faq_categories $lang }}
+  <section class="subpage-hero">
+    <div class="container">
+      <a href="{{ relLangURL "/" }}" class="back-link">← {{ T "back_to_overview" }}</a>
+      <span class="eyebrow subpage-eyebrow">{{ .Params.hero.eyebrow }}</span>
+      <h1>{{ .Params.hero.title_html | safeHTML }}</h1>
+      <p class="lede subpage-summary">{{ .Params.hero.summary }}</p>
+    </div>
+  </section>
+
+  <section class="subpage-content">
+    <div class="container">
+      {{ range $categoryIndex, $category := $categories }}
+        <div class="faq-category reveal">
+          <div>
+            <span class="cat-num">— {{ $category.n }}</span>
+            <h3>{{ $category.title }}</h3>
+          </div>
+          <div class="faq-list" data-accordion>
+            {{ range $itemIndex, $item := $category.items }}
+              {{ $panelID := printf "faq-full-%d-%d" $categoryIndex $itemIndex }}
+              {{ $openDefault := and (eq $categoryIndex 0) (eq $itemIndex 0) }}
+              <div class="faq-item{{ if $openDefault }} open{{ end }}" data-accordion-item{{ if $openDefault }} data-open-default="true"{{ end }}>
+                <button class="faq-q" type="button" aria-expanded="{{ if $openDefault }}true{{ else }}false{{ end }}" aria-controls="{{ $panelID }}" data-accordion-button>
+                  <span>{{ $item.q }}</span>
+                  <span class="plus">+</span>
+                </button>
+                <div id="{{ $panelID }}" class="faq-a" data-accordion-panel aria-hidden="{{ if $openDefault }}false{{ else }}true{{ end }}">
+                  <div class="faq-a-inner">{{ $item.a }}</div>
+                </div>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ partial "final-cta.html" (dict "page" . "cta" .Params.final_cta "contact" $contact) }}
+{{ end }}

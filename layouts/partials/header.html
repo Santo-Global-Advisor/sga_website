@@ -1,0 +1,57 @@
+{{ $isHome := .IsHome }}
+{{ $homeURL := relLangURL "/" }}
+{{ $pageKey := .Params.page_key }}
+{{ $bookURL := printf "%s#consultation" $homeURL }}
+{{ $contact := index site.Data.contact site.Language.Lang }}
+<header class="site-header">
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="{{ if $isHome }}#top{{ else }}{{ $homeURL }}{{ end }}" class="nav-logo">
+        <span class="mark">{{ $contact.brand }}</span>
+        <span class="tag">OAB/SP 379172</span>
+      </a>
+
+      <div class="nav-links">
+        {{ range site.Menus.main }}
+          {{ $href := printf "%s#%s" $homeURL .Params.section }}
+          {{ if $isHome }}
+            {{ $href = printf "#%s" .Params.section }}
+          {{ end }}
+          {{ $active := and (not $isHome) (eq $pageKey .Identifier) }}
+          <a href="{{ $href }}" class="nav-link{{ if $active }} active{{ end }}" data-nav-key="{{ .Identifier }}">{{ .Name }}</a>
+        {{ end }}
+      </div>
+
+      <div class="nav-actions">
+        {{ partial "language-switcher.html" . }}
+        <a href="{{ $bookURL }}" class="nav-link nav-book">{{ T "book_consultation" }} →</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="{{ T "open_menu" }}" data-menu-toggle>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="mobile-panel" hidden data-mobile-panel>
+    <div class="container mobile-panel-inner">
+      <div class="mobile-panel-head">
+        <span class="eyebrow">{{ $contact.brand }}</span>
+        {{ partial "language-switcher.html" . }}
+      </div>
+      <div class="mobile-menu-links">
+        {{ range site.Menus.main }}
+          {{ $href := printf "%s#%s" $homeURL .Params.section }}
+          {{ if $isHome }}
+            {{ $href = printf "#%s" .Params.section }}
+          {{ end }}
+          <a href="{{ $href }}" class="mobile-menu-link" data-mobile-link>{{ .Name }}</a>
+        {{ end }}
+      </div>
+      <a href="{{ $bookURL }}" class="btn mobile-book" data-mobile-link>
+        {{ T "book_consultation" }}
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</header>

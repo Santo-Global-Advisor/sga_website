@@ -1,0 +1,346 @@
+{{ define "main" }}
+  {{ $lang := .Site.Language.Lang }}
+  {{ $contact := index site.Data.contact $lang }}
+  {{ $personas := index site.Data.personas $lang }}
+  {{ $services := index site.Data.services $lang }}
+  {{ $pathways := index site.Data.pathways $lang }}
+  {{ $relocation := index site.Data.relocation $lang }}
+  {{ $process := index site.Data.process $lang }}
+  {{ $faqs := index site.Data.faqs $lang }}
+
+  <section class="hero" id="top">
+    {{ partial "hero-mark.html" . }}
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-meta">
+          <span class="eyebrow">{{ .Params.hero.eyebrow }}</span>
+        </div>
+        <div>
+          <h1 class="reveal">
+            {{ range $i, $line := .Params.hero.title_lines }}
+              <span>
+                {{ if eq (add $i 1) $.Params.hero.emphasis_line }}<em>{{ $line }}</em>{{ else }}{{ $line }}{{ end }}
+              </span>
+            {{ end }}
+          </h1>
+          <p class="hero-sub reveal reveal-delay-1">{{ .Params.hero.summary }}</p>
+          <div class="hero-ctas reveal reveal-delay-2">
+            <a href="#consultation" class="btn">
+              {{ T "book_consultation" }}
+              <span class="arrow">→</span>
+            </a>
+            <a href="#services" class="btn ghost">{{ T "explore_services" }}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-divider reveal reveal-delay-3">
+        <span class="eyebrow">{{ T "counsel" }}</span>
+        <div class="credential">
+          <div class="credential-name">
+            {{ $contact.lawyer_name }}
+            <span class="role">{{ $contact.lawyer_role }}</span>
+          </div>
+          <div class="credential-detail">{{ $contact.lawyer_bio }}</div>
+          <div class="credential-contact">
+            <span class="lbl">{{ $contact.oab_label }}</span>
+            {{ $contact.oab_value }}
+            <br><br>
+            <span class="lbl">{{ $contact.direct_label }}</span>
+            {{ $contact.phone }}
+            <br>
+            {{ $contact.email }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fit">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="num-label">
+          <span class="num">— 02</span>
+          <br>
+          <span class="eyebrow label-offset">{{ .Params.fit_check.eyebrow }}</span>
+        </div>
+        <h2>{{ .Params.fit_check.title }}</h2>
+      </div>
+      {{ range $index, $block := .Params.fit_check.blocks }}
+        <div class="two-col reveal{{ if eq $index 1 }} reveal-delay-2{{ else }} reveal-delay-1{{ end }}">
+          <div class="num-label">
+            <span class="num">{{ $block.label }}</span>
+          </div>
+          {{ range $block.paragraphs }}
+            <p>{{ . }}</p>
+          {{ end }}
+        </div>
+        {{ if eq $index 0 }}<div class="sep-rule"></div>{{ end }}
+      {{ end }}
+    </div>
+  </section>
+
+  <section id="personas">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="num-label">
+          <span class="num">— 03</span>
+          <br>
+          <span class="eyebrow label-offset">{{ .Params.personas_section.eyebrow }}</span>
+        </div>
+        <h2>{{ .Params.personas_section.title }}</h2>
+      </div>
+
+      <div class="persona-bar reveal reveal-delay-1">
+        {{ range $index, $persona := $personas }}
+          <button
+            class="persona-chip{{ if eq $index 0 }} active{{ end }}"
+            type="button"
+            data-persona-trigger="{{ $persona.id }}"
+            aria-pressed="{{ if eq $index 0 }}true{{ else }}false{{ end }}">
+            {{ $persona.label }}
+          </button>
+        {{ end }}
+      </div>
+
+      {{ range $index, $persona := $personas }}
+        <div class="persona-panel{{ if eq $index 0 }} is-active{{ end }}" data-persona-panel="{{ $persona.id }}"{{ if ne $index 0 }} hidden{{ end }}>
+          <div class="persona-panel-label reveal is-in">{{ $persona.label }}</div>
+          <div>
+            <h3 class="persona-title reveal is-in">{{ $persona.title }}</h3>
+            <p class="persona-desc reveal is-in">{{ $persona.desc }}</p>
+          </div>
+          <ul class="persona-bullets reveal is-in">
+            {{ range $bulletIndex, $bullet := $persona.bullets }}
+              <li>
+                <span class="bullet-num">0{{ add $bulletIndex 1 }}</span>
+                <span>{{ $bullet }}</span>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="num-label">
+          <span class="num">— 04</span>
+          <br>
+          <span class="eyebrow label-offset">{{ .Params.services_section.eyebrow }}</span>
+        </div>
+        <h2>{{ .Params.services_section.title }}</h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="num-label reveal">
+          <p class="mono-small">{{ .Params.services_section.sidebar }}</p>
+          <a href="{{ relLangURL "/services/" }}" class="link-underline section-link">
+            {{ T "full_program_detail" }}
+            <span>→</span>
+          </a>
+        </div>
+        {{ range $index, $service := $services }}
+          <div class="service-card reveal reveal-delay-{{ cond (gt (add $index 1) 4) 4 (add $index 1) }}">
+            <span class="num">— {{ $service.n }}</span>
+            <h3 class="service-title">{{ $service.title }}</h3>
+            <p class="service-desc">{{ $service.desc }}</p>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section id="pathways">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="num-label">
+          <span class="num">— 05</span>
+          <br>
+          <span class="eyebrow label-offset">{{ .Params.pathways_section.eyebrow }}</span>
+        </div>
+        <h2>{{ .Params.pathways_section.title }}</h2>
+      </div>
+
+      <div class="pathways">
+        <div class="num-label reveal">
+          <p class="mono-small">{{ .Params.pathways_section.sidebar }}</p>
+        </div>
+        <ul class="pathway-list">
+          {{ range $index, $pathway := $pathways }}
+            <li class="pathway-item reveal reveal-delay-{{ cond (gt (add $index 1) 4) 4 (add $index 1) }}">
+              <span class="num">{{ $pathway.n }}</span>
+              <span class="pathway-name">{{ $pathway.name }}</span>
+              <span class="pathway-tag">{{ $pathway.tag }}</span>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="investment" class="dark-block">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="num-label">
+          <span class="num num-on-dark">— 06</span>
+          <br>
+          <span class="eyebrow on-navy label-offset">{{ .Params.investment_section.eyebrow }}</span>
+        </div>
+        <h2>{{ .Params.investment_section.title }}</h2>
+      </div>
+
+      <div class="invest-grid">
+        <div></div>
+        <div class="invest-copy reveal">
+          {{ range $index, $paragraph := .Params.investment_section.intro }}
+            <p{{ if gt $index 0 }} class="muted-on-dark"{{ end }}>{{ $paragraph }}</p>
+          {{ end }}
+        </div>
+        <div class="invest-pts reveal reveal-delay-1">
+          {{ range .Params.investment_section.points }}
+            <div class="pt">
+              <strong>{{ .title }}</strong>
+              {{ .body }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="relocation">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="num-label">
+          <span class="num">— 07</span>
+          <br>
+          <span class="eyebrow label-offset">{{ .Params.relocation_section.eyebrow }}</span>
+        </div>
+        <h2>{{ .Params.relocation_section.title }}</h2>
+      </div>
+
+      <div class="relocation">
+        <div class="num-label reveal">
+          <p class="mono-small">{{ .Params.relocation_section.sidebar }}</p>
+        </div>
+        <div>
+          <p class="reloc-intro reveal">{{ .Params.relocation_section.intro }}</p>
+          <div class="reloc-grid">
+            {{ range $index, $item := $relocation }}
+              <div class="reloc-item reveal reveal-delay-{{ cond (gt (mod (add $index 1) 4) 0) (mod (add $index 1) 4) 4 }}">
+                <span class="num">— {{ $item.n }}</span>
+                <span class="reloc-item-title">{{ $item.title }}</span>
+                <span class="reloc-item-desc">{{ $item.desc }}</span>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="num-label">
+          <span class="num">— 08</span>
+          <br>
+          <span class="eyebrow label-offset">{{ .Params.process_section.eyebrow }}</span>
+        </div>
+        <h2>{{ .Params.process_section.title }}</h2>
+      </div>
+
+      <div class="process-grid">
+        <div class="num-label reveal">
+          <p class="mono-small">{{ .Params.process_section.sidebar }}</p>
+        </div>
+        <div class="process-steps">
+          {{ range $index, $step := $process }}
+            <div class="process-step reveal reveal-delay-{{ cond (gt (add $index 1) 4) 4 (add $index 1) }}">
+              <span class="num-big">{{ $step.n }}</span>
+              <span class="process-step-title">{{ $step.title }}</span>
+              <span class="process-step-desc">{{ $step.desc }}</span>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="consultation">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="num-label">
+          <span class="num">— 09</span>
+          <br>
+          <span class="eyebrow label-offset">{{ .Params.consultation_section.eyebrow }}</span>
+        </div>
+        <h2>{{ .Params.consultation_section.title }}</h2>
+      </div>
+
+      <div class="consult-grid">
+        <div class="num-label"></div>
+        <div class="consult-copy reveal">
+          {{ range $index, $paragraph := .Params.consultation_section.intro }}
+            <p{{ if gt $index 0 }} class="muted-copy"{{ end }}>{{ $paragraph }}</p>
+          {{ end }}
+          <a href="mailto:{{ $contact.email }}" class="btn consult-button">
+            {{ T "book_consultation" }}
+            <span class="arrow">→</span>
+          </a>
+        </div>
+        <div class="consult-card reveal reveal-delay-1">
+          <h3>{{ $contact.consultation_card_title }}</h3>
+          <ul>
+            {{ range $contact.consultation_items }}
+              <li><span class="k">{{ .label }}</span><span class="v">{{ .value }}</span></li>
+            {{ end }}
+          </ul>
+          <div class="mono-small consult-note">{{ $contact.fee_note }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="num-label">
+          <span class="num">— 10</span>
+          <br>
+          <span class="eyebrow label-offset">{{ .Params.faq_section.eyebrow }}</span>
+        </div>
+        <h2>{{ .Params.faq_section.title }}</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="num-label reveal">
+          <p class="mono-small">{{ .Params.faq_section.sidebar }}</p>
+          <a href="{{ relLangURL "/faq/" }}" class="link-underline section-link">
+            {{ T "full_faq" }}
+            <span>→</span>
+          </a>
+        </div>
+        <div class="faq-list reveal reveal-delay-1" data-accordion>
+          {{ range $index, $item := $faqs }}
+            {{ $panelID := printf "faq-preview-%d" $index }}
+            <div class="faq-item{{ if eq $index 0 }} open{{ end }}" data-accordion-item{{ if eq $index 0 }} data-open-default="true"{{ end }}>
+              <button class="faq-q" type="button" aria-expanded="{{ if eq $index 0 }}true{{ else }}false{{ end }}" aria-controls="{{ $panelID }}" data-accordion-button>
+                <span>{{ $item.q }}</span>
+                <span class="plus">+</span>
+              </button>
+              <div id="{{ $panelID }}" class="faq-a" data-accordion-panel aria-hidden="{{ if eq $index 0 }}false{{ else }}true{{ end }}">
+                <div class="faq-a-inner">{{ $item.a }}</div>
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{ partial "final-cta.html" (dict "page" . "cta" .Params.final_cta "contact" $contact "id" "contact") }}
+{{ end }}

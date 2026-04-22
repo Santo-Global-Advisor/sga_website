@@ -1,0 +1,50 @@
+{{ $page := .page }}
+{{ $cta := .cta }}
+{{ $contact := .contact }}
+{{ $homeURL := relLangURL "/" }}
+{{ $primaryURL := printf "%s#consultation" $homeURL }}
+{{ $secondaryURL := "" }}
+{{ $secondaryLabel := "" }}
+{{ if eq $cta.secondary "faq" }}
+  {{ $secondaryURL = relLangURL "/faq/" }}
+  {{ $secondaryLabel = T "read_faq" }}
+{{ else if eq $cta.secondary "whatsapp" }}
+  {{ $secondaryURL = $contact.whatsapp_url }}
+  {{ $secondaryLabel = T "whatsapp_direct" }}
+{{ end }}
+<section class="dark-block final-cta"{{ with .id }} id="{{ . }}"{{ end }}>
+  <div class="container">
+    <div class="final-cta-inner">
+      <div class="num-label">
+        <span class="num num-on-dark">— {{ $cta.eyebrow }}</span>
+      </div>
+      <div>
+        <h2 class="reveal">{{ $cta.title_html | safeHTML }}</h2>
+        {{ with $cta.summary }}
+          <p class="lede reveal reveal-delay-1 final-cta-summary">{{ . }}</p>
+        {{ end }}
+        <div class="ctas reveal reveal-delay-2">
+          <a href="{{ $primaryURL }}" class="btn light">
+            {{ T "book_consultation" }}
+            <span class="arrow">→</span>
+          </a>
+          {{ if and $secondaryURL $secondaryLabel }}
+            <a href="{{ $secondaryURL }}" class="btn ghost on-navy">{{ $secondaryLabel }}</a>
+          {{ end }}
+        </div>
+        {{ if $cta.show_contact_strip }}
+          <div class="contact-strip reveal reveal-delay-3">
+            <div>
+              <span class="lbl">WhatsApp</span>
+              <span class="val">{{ $contact.phone }}</span>
+            </div>
+            <div>
+              <span class="lbl">Email</span>
+              <span class="val">{{ $contact.email }}</span>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

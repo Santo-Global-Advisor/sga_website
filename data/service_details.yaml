@@ -1,0 +1,177 @@
+en:
+  - n: "01"
+    title: "Visa & residency strategy"
+    paragraphs:
+      - "Choosing the correct pathway is the single most consequential decision in any relocation. We assess eligibility across every applicable category, compare timelines and conditions, and build the application that gives the strongest case."
+      - "Once filed, we manage the process through approval, registration, and first renewal — so nothing lapses in the background."
+    bullets:
+      - "Eligibility assessment across all applicable categories"
+      - "Documentation review, translation and consular handling"
+      - "Application filing with the Federal Police and consulates"
+      - "Registration (RNM/CRNM) after arrival"
+      - "Renewal strategy and long-term residency planning"
+  - n: "02"
+    title: "CPF & legal registration"
+    paragraphs:
+      - "The CPF is the foundation of every subsequent action in Brazil — banking, property, contracts, taxes. We obtain it quickly, together with the broader legal identity layer your situation requires."
+    bullets:
+      - "CPF registration for you and dependents"
+      - "Digital certificate (e-CPF) where needed"
+      - "Municipal and federal registrations relevant to your status"
+      - "Notarial powers of attorney when acting remotely"
+  - n: "03"
+    title: "Banking & initial setup"
+    paragraphs:
+      - "Opening a Brazilian bank account as a foreigner remains one of the most friction-prone steps. We select the right institution for your profile, prepare documentation correctly, and coordinate introduction and onboarding."
+    bullets:
+      - "Bank selection based on your profile and objectives"
+      - "Account opening coordination and introduction"
+      - "Pix, international transfer and FX setup"
+      - "Utilities, mobile line and essential local services"
+  - n: "04"
+    title: "Real estate support"
+    paragraphs:
+      - "Whether renting or buying, Brazilian property transactions carry legal and tax implications that are not obvious to newcomers. We provide full due diligence, contract review, and registration — and if you are buying, structural advice on ownership form."
+    bullets:
+      - "Title, liens and registry (matrícula) review"
+      - "Contract drafting and negotiation"
+      - "Ownership structure — personal, holding or entity"
+      - "ITBI, notarial and registration coordination"
+      - "Rental contract review and deposit protection"
+  - n: "05"
+    title: "Tax structuring & compliance"
+    paragraphs:
+      - "Brazil's tax system is demanding for residents with foreign income or assets. We define your residency status precisely, structure around it, and keep you compliant year after year."
+    bullets:
+      - "Tax residency analysis and 183-day threshold planning"
+      - "Foreign income and asset treatment"
+      - "Capital gains, rental income and repatriation modelling"
+      - "Annual declaration (DIRPF) and DCBE reporting"
+      - "Double-taxation coordination with home jurisdictions"
+  - n: "06"
+    title: "Post-arrival support"
+    paragraphs:
+      - "Moving is not an event, it is a transition. We remain engaged after you arrive — handling the inevitable follow-on matters and staying available as your counsel in Brazil."
+    bullets:
+      - "Single point of legal contact in Brazil"
+      - "Renewals, registrations and compliance calendar"
+      - "Ongoing tax and structural review"
+      - "Trusted introductions — accountants, notaries, advisors"
+fr:
+  - n: "01"
+    title: "Stratégie visa et résidence"
+    paragraphs:
+      - "Choisir la bonne voie est la décision la plus déterminante de toute installation. Nous analysons votre éligibilité dans chaque catégorie pertinente, comparons délais et conditions, et construisons le dossier le plus solide."
+      - "Une fois la demande déposée, nous pilotons le processus jusqu'à l'approbation, l'enregistrement et le premier renouvellement — pour qu'aucune étape ne soit négligée."
+    bullets:
+      - "Analyse d'éligibilité dans toutes les catégories applicables"
+      - "Vérification documentaire, traductions et formalités consulaires"
+      - "Dépôt des demandes auprès de la Police fédérale et des consulats"
+      - "Enregistrement (RNM/CRNM) après l'arrivée"
+      - "Stratégie de renouvellement et résidence de long terme"
+  - n: "02"
+    title: "CPF et enregistrements juridiques"
+    paragraphs:
+      - "Le CPF est la base de toute action suivante au Brésil — banque, immobilier, contrats, fiscalité. Nous l'obtenons rapidement, avec l'ensemble des éléments d'identité juridique exigés par votre situation."
+    bullets:
+      - "Enregistrement CPF pour vous et vos dépendants"
+      - "Certificat numérique (e-CPF) si nécessaire"
+      - "Enregistrements municipaux et fédéraux liés à votre statut"
+      - "Procurations notariales en cas d'intervention à distance"
+  - n: "03"
+    title: "Banque et mise en place initiale"
+    paragraphs:
+      - "Ouvrir un compte bancaire brésilien en tant qu'étranger reste l'une des étapes les plus sensibles. Nous sélectionnons l'établissement adapté à votre profil, préparons la documentation correctement et coordonnons l'introduction et l'onboarding."
+    bullets:
+      - "Sélection bancaire selon votre profil et vos objectifs"
+      - "Coordination de l'ouverture de compte et introduction"
+      - "Mise en place de Pix, transferts internationaux et change"
+      - "Services essentiels, ligne mobile et utilités"
+  - n: "04"
+    title: "Assistance immobilière"
+    paragraphs:
+      - "Location ou achat, les opérations immobilières au Brésil comportent des implications juridiques et fiscales peu visibles pour les nouveaux arrivants. Nous assurons la due diligence, la revue contractuelle et l'enregistrement — ainsi que le conseil sur la forme de détention si vous achetez."
+    bullets:
+      - "Revue du titre, des charges et de la matrícula"
+      - "Rédaction et négociation contractuelles"
+      - "Structure de détention — personnelle, holding ou société"
+      - "Coordination de l'ITBI, du notaire et de l'enregistrement"
+      - "Revue du bail et protection du dépôt de garantie"
+  - n: "05"
+    title: "Structuration fiscale et conformité"
+    paragraphs:
+      - "Le système fiscal brésilien est exigeant pour les résidents ayant des revenus ou actifs à l'étranger. Nous définissons précisément votre statut fiscal, structurons en conséquence et assurons votre conformité année après année."
+    bullets:
+      - "Analyse de résidence fiscale et planification du seuil des 183 jours"
+      - "Traitement des revenus et actifs étrangers"
+      - "Modélisation des plus-values, loyers et rapatriation"
+      - "Déclarations annuelles (DIRPF) et reporting DCBE"
+      - "Coordination des conventions de double imposition"
+  - n: "06"
+    title: "Suivi après l'arrivée"
+    paragraphs:
+      - "S'installer n'est pas un événement mais une transition. Nous restons engagés après votre arrivée — pour traiter les sujets qui suivent naturellement et rester disponibles comme votre conseil au Brésil."
+    bullets:
+      - "Point de contact juridique unique au Brésil"
+      - "Renouvellements, enregistrements et calendrier de conformité"
+      - "Revue fiscale et structurelle continue"
+      - "Mises en relation de confiance — comptables, notaires, conseillers"
+pt:
+  - n: "01"
+    title: "Estratégia de visto e residência"
+    paragraphs:
+      - "Escolher o caminho correto é a decisão mais relevante em qualquer mudança. Avaliamos a elegibilidade em todas as categorias aplicáveis, comparamos prazos e condições e estruturamos o pedido mais forte para o seu caso."
+      - "Depois do protocolo, conduzimos o processo até a aprovação, o registro e a primeira renovação — para que nada fique para trás."
+    bullets:
+      - "Análise de elegibilidade em todas as categorias aplicáveis"
+      - "Revisão documental, traduções e trâmites consulares"
+      - "Protocolo junto à Polícia Federal e aos consulados"
+      - "Registro (RNM/CRNM) após a chegada"
+      - "Estratégia de renovação e planejamento de residência de longo prazo"
+  - n: "02"
+    title: "CPF e registros legais"
+    paragraphs:
+      - "O CPF é a base de toda ação seguinte no Brasil — banco, imóvel, contratos, tributos. Providenciamos o documento com rapidez, junto com a camada mais ampla de identidade jurídica que o seu caso exigir."
+    bullets:
+      - "Registro de CPF para você e seus dependentes"
+      - "Certificado digital (e-CPF) quando necessário"
+      - "Registros municipais e federais pertinentes ao seu status"
+      - "Procurações lavradas em cartório quando a atuação for remota"
+  - n: "03"
+    title: "Banco e estrutura inicial"
+    paragraphs:
+      - "Abrir conta bancária no Brasil sendo estrangeiro continua sendo uma das etapas com mais atrito. Selecionamos a instituição certa para o seu perfil, preparamos a documentação corretamente e coordenamos a introdução e o onboarding."
+    bullets:
+      - "Seleção do banco conforme o seu perfil e objetivos"
+      - "Coordenação da abertura de conta e da introdução"
+      - "Configuração de Pix, transferências internacionais e câmbio"
+      - "Serviços essenciais, linha móvel e utilidades locais"
+  - n: "04"
+    title: "Suporte imobiliário"
+    paragraphs:
+      - "Seja para locar ou comprar, transações imobiliárias no Brasil trazem efeitos jurídicos e tributários pouco óbvios para quem está chegando. Fazemos due diligence completa, revisão contratual e registro — e, em compras, orientamos sobre a melhor forma de titularidade."
+    bullets:
+      - "Revisão de matrícula, ônus e registros"
+      - "Redação e negociação contratual"
+      - "Estrutura de titularidade — pessoal, holding ou empresa"
+      - "Coordenação de ITBI, cartório e registro"
+      - "Revisão de contrato de locação e proteção do depósito"
+  - n: "05"
+    title: "Estruturação tributária e conformidade"
+    paragraphs:
+      - "O sistema tributário brasileiro é exigente para residentes com renda ou patrimônio no exterior. Definimos com precisão o seu status fiscal, estruturamos em torno dele e mantemos sua conformidade ano após ano."
+    bullets:
+      - "Análise de residência fiscal e planejamento do limite de 183 dias"
+      - "Tratamento de renda e patrimônio no exterior"
+      - "Modelagem de ganho de capital, aluguel e repatriação"
+      - "Declaração anual (DIRPF) e reporte DCBE"
+      - "Coordenação para evitar dupla tributação"
+  - n: "06"
+    title: "Suporte pós-chegada"
+    paragraphs:
+      - "Mudar-se não é um evento, é uma transição. Continuamos envolvidos depois da sua chegada — cuidando dos desdobramentos inevitáveis e permanecendo disponíveis como seu ponto de assessoria no Brasil."
+    bullets:
+      - "Ponto único de contato jurídico no Brasil"
+      - "Renovações, registros e calendário de conformidade"
+      - "Revisão tributária e estrutural contínua"
+      - "Indicações de confiança — contadores, cartórios e consultores"

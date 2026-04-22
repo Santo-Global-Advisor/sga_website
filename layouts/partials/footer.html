@@ -1,0 +1,9 @@
+{{ $contact := index site.Data.contact site.Language.Lang }}
+<footer>
+  <div class="container footer-inner">
+    <span class="mark-sm">{{ $contact.brand }}</span>
+    <span>{{ $contact.tag }} · {{ $contact.lawyer_role }}</span>
+    <span>{{ $contact.website }}</span>
+    <span>© {{ $contact.footer_year }}</span>
+  </div>
+</footer>

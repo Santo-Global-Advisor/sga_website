@@ -1,0 +1,36 @@
+{{ define "main" }}
+  {{ $lang := .Site.Language.Lang }}
+  {{ $contact := index site.Data.contact $lang }}
+  {{ $details := index site.Data.service_details $lang }}
+  <section class="subpage-hero">
+    <div class="container">
+      <a href="{{ relLangURL "/" }}" class="back-link">← {{ T "back_to_overview" }}</a>
+      <span class="eyebrow subpage-eyebrow">{{ .Params.hero.eyebrow }}</span>
+      <h1>{{ .Params.hero.title_html | safeHTML }}</h1>
+      <p class="lede subpage-summary">{{ .Params.hero.summary }}</p>
+    </div>
+  </section>
+
+  <section class="subpage-content">
+    <div class="container">
+      {{ range $details }}
+        <div class="service-detail reveal">
+          <div class="n-big">{{ .n }}</div>
+          <div>
+            <h3>{{ .title }}</h3>
+            {{ range .paragraphs }}
+              <p>{{ . }}</p>
+            {{ end }}
+          </div>
+          <ul>
+            {{ range $index, $bullet := .bullets }}
+              <li><span class="dot">{{ index (slice "I" "II" "III" "IV" "V") $index }}</span>{{ $bullet }}</li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ partial "final-cta.html" (dict "page" . "cta" .Params.final_cta "contact" $contact) }}
+{{ end }}

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class="page {{ .Params.page_key }}" data-page="{{ .Params.page_key }}">
+  {{ partial "header.html" . }}
+  <main id="main">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+  {{ $script := resources.Get "js/main.js" }}
+  {{ if .Site.IsServer }}
+    <script src="{{ $script.RelPermalink }}" defer></script>
+  {{ else }}
+    <script src="{{ ($script | minify | fingerprint).RelPermalink }}" defer></script>
+  {{ end }}
+</body>
+</html>

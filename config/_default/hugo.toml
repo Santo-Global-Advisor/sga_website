@@ -1,0 +1,36 @@
+baseURL = "https://santoglobaladvisory.com/"
+title = "Santo Global Advisory"
+languageCode = "en"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+enableRobotsTXT = true
+disableKinds = ["RSS", "taxonomy", "taxonomyTerm", "term"]
+cleanDestinationDir = true
+disableAliases = true
+taxonomies = {}
+
+[outputs]
+  home = ["HTML"]
+  page = ["HTML"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+[params]
+  description = "Santo Global Advisory helps foreigners move to Brazil through coordinated legal, tax, property, and relocation counsel."
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    languageCode = "en-GB"
+    weight = 1
+
+  [languages.fr]
+    languageName = "Français"
+    languageCode = "fr-FR"
+    weight = 2
+
+  [languages.pt]
+    languageName = "Português"
+    languageCode = "pt-BR"
+    weight = 3

@@ -1,0 +1,10 @@
+{{ define "main" }}
+  {{ $contact := index site.Data.contact site.Language.Lang }}
+  <section class="subpage-hero">
+    <div class="container">
+      <a href="{{ relLangURL "/" }}" class="back-link">← {{ T "back_to_overview" }}</a>
+      <span class="eyebrow subpage-eyebrow">{{ $contact.brand }}</span>
+      <h1>{{ .Title }}</h1>
+    </div>
+  </section>
+{{ end }}

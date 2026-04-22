@@ -1,0 +1,31 @@
+[[main]]
+name = "Services"
+identifier = "services"
+weight = 1
+
+[main.params]
+section = "services"
+
+[[main]]
+name = "Parcours"
+identifier = "pathways"
+weight = 2
+
+[main.params]
+section = "pathways"
+
+[[main]]
+name = "Processus"
+identifier = "process"
+weight = 3
+
+[main.params]
+section = "process"
+
+[[main]]
+name = "FAQ"
+identifier = "faq"
+weight = 4
+
+[main.params]
+section = "faq"
