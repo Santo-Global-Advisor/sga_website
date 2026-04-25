@@ -1,3 +1,7 @@
 /public/
 /resources/
 /.hugo_build.lock
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/modules.xml
+/.idea/sga_website.iml
+/.idea/vcs.xml

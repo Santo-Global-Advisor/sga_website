@@ -10,7 +10,7 @@
   </main>
   {{ partial "footer.html" . }}
   {{ $script := resources.Get "js/main.js" }}
-  {{ if .Site.IsServer }}
+  {{ if eq hugo.Environment "development" }}
     <script src="{{ $script.RelPermalink }}" defer></script>
   {{ else }}
     <script src="{{ ($script | minify | fingerprint).RelPermalink }}" defer></script>
