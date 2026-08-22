@@ -1540,3 +1540,492 @@ footer {
     inset: 87px 0 auto;
   }
 }
+
+/* ==========================================================================
+   Guides — index, article, and the Juriwell lead-magnet CTA
+   ========================================================================== */
+
+.guide-group + .guide-group {
+  margin-top: clamp(56px, 7vw, 96px);
+  padding-top: clamp(40px, 5vw, 64px);
+  border-top: 1px solid var(--rule);
+}
+
+.guide-group-head {
+  max-width: 720px;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.guide-group-head h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.1;
+  margin: 12px 0 0;
+}
+
+.guide-group-desc {
+  color: var(--muted);
+  margin: 14px 0 0;
+  max-width: 60ch;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.guide-card {
+  background: var(--cream);
+  padding: clamp(24px, 3vw, 34px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background 220ms ease, transform 220ms ease;
+}
+
+.guide-card:hover {
+  background: var(--cream-warm);
+}
+
+.guide-card-tag {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.guide-card-title {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(21px, 2.2vw, 26px);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.guide-card-desc {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0;
+  flex: 1;
+}
+
+.guide-card-meta {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.guide-card:hover .guide-card-meta .arrow {
+  transform: translateX(4px);
+}
+
+.guide-card-meta .arrow {
+  transition: transform 220ms ease;
+}
+
+/* --- article ------------------------------------------------------------ */
+
+.guide-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin-top: 28px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.guide-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+
+.guide-toc {
+  position: sticky;
+  top: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.guide-facts {
+  border: 1px solid var(--rule);
+  padding: 22px;
+  background: var(--cream-warm);
+}
+
+.guide-facts dl {
+  margin: 16px 0 0;
+}
+
+.guide-facts dt {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.guide-facts dd {
+  margin: 4px 0 16px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.guide-facts dd:last-child {
+  margin-bottom: 0;
+}
+
+.guide-toc-nav ul {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  border-left: 1px solid var(--rule);
+}
+
+.guide-toc-nav li {
+  margin: 0;
+}
+
+.guide-toc-nav a {
+  display: block;
+  padding: 7px 0 7px 16px;
+  font-size: 14px;
+  color: var(--muted);
+  border-left: 1px solid transparent;
+  margin-left: -1px;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.guide-toc-nav a:hover {
+  color: var(--ink);
+  border-left-color: var(--gold);
+}
+
+.guide-toc-nav ul ul a {
+  padding-left: 30px;
+  font-size: 13px;
+}
+
+/* --- prose -------------------------------------------------------------- */
+
+.guide-body {
+  max-width: 68ch;
+  font-size: 17px;
+  line-height: 1.68;
+}
+
+.guide-body > h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3.2vw, 38px);
+  line-height: 1.12;
+  margin: clamp(48px, 6vw, 72px) 0 18px;
+  scroll-margin-top: 110px;
+}
+
+.guide-body > h2:first-child {
+  margin-top: 0;
+}
+
+.guide-body > h3 {
+  font-family: var(--f-body);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  margin: 40px 0 12px;
+  scroll-margin-top: 110px;
+}
+
+.guide-body p {
+  margin: 0 0 20px;
+}
+
+.guide-body a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--gold);
+  transition: color 180ms ease;
+}
+
+.guide-body a:hover {
+  color: var(--gold);
+}
+
+.guide-body strong {
+  font-weight: 600;
+}
+
+.guide-body ul,
+.guide-body ol {
+  margin: 0 0 24px;
+  padding-left: 22px;
+}
+
+.guide-body li {
+  margin-bottom: 10px;
+}
+
+.guide-body blockquote {
+  margin: 36px 0;
+  padding: 4px 0 4px 26px;
+  border-left: 2px solid var(--gold);
+  font-family: var(--f-display);
+  font-size: clamp(21px, 2.4vw, 26px);
+  line-height: 1.28;
+  color: var(--ink);
+}
+
+.guide-body blockquote p {
+  margin: 0;
+}
+
+.guide-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 28px;
+  font-size: 15px;
+}
+
+.guide-body thead th {
+  text-align: left;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  padding: 0 14px 10px 0;
+  border-bottom: 1px solid var(--ink);
+}
+
+.guide-body tbody td {
+  padding: 14px 14px 14px 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+.guide-body .table-scroll {
+  overflow-x: auto;
+  margin: 0 0 28px;
+}
+
+.guide-body .table-scroll table {
+  margin: 0;
+  min-width: 440px;
+}
+
+/* callout boxes reused from the book's voice */
+.guide-body .callout {
+  border: 1px solid var(--rule);
+  border-left: 2px solid var(--gold);
+  background: var(--cream-warm);
+  padding: 24px 26px;
+  margin: 32px 0;
+}
+
+.guide-body .callout > *:last-child {
+  margin-bottom: 0;
+}
+
+.guide-body .callout .label {
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.guide-body .callout.warn {
+  border-left-color: var(--navy);
+}
+
+.guide-body .callout.warn .label {
+  color: var(--navy);
+}
+
+.guide-faq {
+  margin: 8px 0 0;
+}
+
+.guide-sources,
+.guide-disclaimer,
+.guide-related {
+  margin-top: clamp(48px, 6vw, 72px);
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+
+.guide-sources ul,
+.guide-related ul {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  font-size: 15px;
+}
+
+.guide-sources li,
+.guide-related li {
+  padding: 7px 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted);
+}
+
+.guide-related li {
+  color: var(--ink);
+}
+
+.guide-disclaimer p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* --- Juriwell CTA ------------------------------------------------------- */
+
+.jw-cta-inner {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: start;
+}
+
+.jw-cta h2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(32px, 4.4vw, 54px);
+  line-height: 1.06;
+  margin: 0 0 20px;
+  max-width: 18ch;
+}
+
+.jw-cta h2 em {
+  font-style: italic;
+  color: var(--gold-soft);
+}
+
+.jw-hook {
+  color: var(--muted-on-navy);
+  max-width: 62ch;
+  margin: 0 0 32px;
+  font-size: 15px;
+  line-height: 1.6;
+  padding-left: 18px;
+  border-left: 1px solid var(--rule-on-navy);
+}
+
+.jw-form {
+  max-width: 620px;
+}
+
+.jw-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.jw-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.jw-input {
+  flex: 1 1 260px;
+  min-width: 0;
+  background: transparent;
+  border: 1px solid var(--rule-on-navy);
+  color: var(--cream);
+  font-family: var(--f-body);
+  font-size: 15px;
+  padding: 16px 18px;
+  transition: border-color 200ms ease;
+}
+
+.jw-input::placeholder {
+  color: var(--muted-on-navy);
+}
+
+.jw-input:focus {
+  outline: none;
+  border-color: var(--gold-soft);
+}
+
+.jw-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.jw-submit {
+  flex: 0 0 auto;
+}
+
+.jw-submit[disabled] {
+  opacity: 0.55;
+  cursor: progress;
+}
+
+.jw-note {
+  margin: 14px 0 0;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-on-navy);
+}
+
+.jw-status {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: var(--cream);
+}
+
+.jw-status[data-tone="error"] {
+  color: var(--gold-soft);
+}
+
+@media (max-width: 1080px) {
+  .guide-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-toc {
+    position: static;
+    flex-direction: column;
+  }
+
+  .guide-toc-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .jw-cta-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-body {
+    font-size: 16px;
+  }
+}

@@ -29,3 +29,11 @@ weight = 4
 
 [main.params]
 section = "faq"
+
+[[main]]
+name = "Guides"
+identifier = "guides"
+weight = 5
+
+[main.params]
+page = "/guides/"

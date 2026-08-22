@@ -1,0 +1,58 @@
+{{/* Juriwell lead-magnet CTA.
+     Params: page (the current page), lang, jw (site.Data.juriwell) */}}
+{{ $page := .page }}
+{{ $lang := .lang }}
+{{ $jw := site.Data.juriwell }}
+{{ $copy := index $jw $lang }}
+{{ $topicKey := default "moving-to-brazil" $page.Params.juriwell_topic_key }}
+{{ $topicLabel := default $page.Title $page.Params.juriwell_topic }}
+{{ $source := printf "%s-%s" (default "sga-guide" $jw.source_prefix) $topicKey }}
+{{ $welcome := printf "%s?topic=%s&lang=%s&ref=%s" $jw.welcome_url $topicKey $lang (default "sga" $jw.referral) }}
+<section class="dark-block jw-cta" id="guide-download">
+  <div class="container">
+    <div class="jw-cta-inner">
+      <div class="num-label">
+        <span class="num num-on-dark">— {{ $copy.eyebrow }}</span>
+      </div>
+      <div>
+        <h2 class="reveal">{{ $copy.title | safeHTML }}</h2>
+        <p class="lede reveal reveal-delay-1">{{ $copy.body }}</p>
+        <p class="jw-hook reveal reveal-delay-1">{{ $copy.hook }}</p>
+
+        <form class="jw-form reveal reveal-delay-2"
+              data-jw-form
+              data-jw-endpoint="{{ $jw.endpoint }}"
+              data-jw-welcome="{{ $welcome }}"
+              data-jw-source="{{ $source }}"
+              data-jw-service="{{ default "immigration" $jw.service }}"
+              data-jw-topic="{{ $topicLabel }}"
+              data-jw-msg-loading="{{ $copy.loading }}"
+              data-jw-msg-success="{{ $copy.success }}"
+              data-jw-msg-error="{{ $copy.error }}"
+              data-jw-msg-invalid="{{ $copy.invalid }}"
+              novalidate>
+          <label class="jw-label" for="jw-email-{{ $topicKey }}">{{ $copy.placeholder }}</label>
+          <div class="jw-row">
+            <input class="jw-input"
+                   id="jw-email-{{ $topicKey }}"
+                   type="email"
+                   name="email"
+                   inputmode="email"
+                   autocomplete="email"
+                   required
+                   placeholder="{{ $copy.placeholder }}"
+                   data-jw-email>
+            {{/* honeypot — bots fill it, humans never see it */}}
+            <input class="jw-trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" data-jw-trap>
+            <button class="btn light jw-submit" type="submit" data-jw-submit>
+              {{ $copy.submit }}
+              <span class="arrow">→</span>
+            </button>
+          </div>
+          <p class="jw-note">{{ $copy.note }}</p>
+          <p class="jw-status" role="status" aria-live="polite" data-jw-status hidden></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

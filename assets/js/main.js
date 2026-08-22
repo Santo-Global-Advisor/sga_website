@@ -142,6 +142,90 @@
     window.addEventListener("scroll", updateActiveLink, { passive: true });
   }
 
+
+  function setJuriwellForms() {
+    var forms = document.querySelectorAll("[data-jw-form]");
+    if (!forms.length) return;
+
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    forms.forEach(function (form) {
+      var input = form.querySelector("[data-jw-email]");
+      var trap = form.querySelector("[data-jw-trap]");
+      var button = form.querySelector("[data-jw-submit]");
+      var status = form.querySelector("[data-jw-status]");
+      var submitting = false;
+
+      function say(message, tone) {
+        if (!status) return;
+        status.textContent = message;
+        status.hidden = !message;
+        status.setAttribute("data-tone", tone || "info");
+      }
+
+      function openWelcome() {
+        var url = form.getAttribute("data-jw-welcome");
+        if (!url) return;
+        // Opened inside the submit handler's task so the popup blocker
+        // still treats it as user-initiated.
+        var opened = window.open(url, "_blank", "noopener");
+        if (!opened) window.location.href = url;
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (submitting) return;
+
+        // Honeypot: a filled hidden field means a bot. Fail silently.
+        if (trap && trap.value) return;
+
+        var email = input ? input.value.trim() : "";
+        if (!emailRe.test(email)) {
+          say(form.getAttribute("data-jw-msg-invalid"), "error");
+          if (input) input.focus();
+          return;
+        }
+
+        var endpoint = form.getAttribute("data-jw-endpoint");
+        if (!endpoint) {
+          // No lead endpoint configured yet — never dead-end the visitor.
+          say(form.getAttribute("data-jw-msg-success"), "ok");
+          openWelcome();
+          return;
+        }
+
+        submitting = true;
+        if (button) button.disabled = true;
+        say(form.getAttribute("data-jw-msg-loading"), "info");
+
+        fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: email,
+            service: form.getAttribute("data-jw-service") || "immigration",
+            source: form.getAttribute("data-jw-source") || "sga-guide",
+            message: "Guide download request — " + (form.getAttribute("data-jw-topic") || "")
+          })
+        })
+          .then(function (response) {
+            if (!response.ok) throw new Error("lead endpoint returned " + response.status);
+            say(form.getAttribute("data-jw-msg-success"), "ok");
+            form.setAttribute("data-jw-done", "true");
+            if (input) input.value = "";
+            openWelcome();
+          })
+          .catch(function () {
+            say(form.getAttribute("data-jw-msg-error"), "error");
+          })
+          .then(function () {
+            submitting = false;
+            if (button) button.disabled = false;
+          });
+      });
+    });
+  }
+
   function setMobileMenu() {
     if (!menuToggle || !mobilePanel) return;
 
@@ -188,5 +272,6 @@
   setAccordions();
   setHomeSectionTracking();
   setMobileMenu();
+  setJuriwellForms();
   window.addEventListener("scroll", setScrolled, { passive: true });
 })();
