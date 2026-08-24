@@ -17,6 +17,7 @@
           {{ if $isHome }}
             {{ $href = printf "#%s" .Params.section }}
           {{ end }}
+          {{ with .Params.page }}{{ $href = relLangURL . }}{{ end }}
           {{ $active := and (not $isHome) (eq $pageKey .Identifier) }}
           <a href="{{ $href }}" class="nav-link{{ if $active }} active{{ end }}" data-nav-key="{{ .Identifier }}">{{ .Name }}</a>
         {{ end }}
@@ -45,6 +46,7 @@
           {{ if $isHome }}
             {{ $href = printf "#%s" .Params.section }}
           {{ end }}
+          {{ with .Params.page }}{{ $href = relLangURL . }}{{ end }}
           <a href="{{ $href }}" class="mobile-menu-link" data-mobile-link>{{ .Name }}</a>
         {{ end }}
       </div>

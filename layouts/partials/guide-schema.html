@@ -1,0 +1,41 @@
+{{/* Article + FAQ JSON-LD for a guide page. */}}
+{{ $page := .page }}
+{{ $lang := .lang }}
+{{ $contact := index site.Data.contact $lang }}
+{{ $published := $page.Date }}
+{{ $modified := default $page.Date $page.Lastmod }}
+{{ $schema := dict
+  "@context" "https://schema.org"
+  "@type" "Article"
+  "headline" $page.Title
+  "description" $page.Params.description
+  "inLanguage" $page.Site.Language.LanguageCode
+  "mainEntityOfPage" (dict "@type" "WebPage" "@id" $page.Permalink)
+  "datePublished" ($published.Format "2006-01-02")
+  "dateModified" ($modified.Format "2006-01-02")
+  "author" (dict
+    "@type" "Person"
+    "name" $contact.lawyer_name
+    "jobTitle" $contact.lawyer_role
+    "identifier" (printf "OAB/%s" $contact.oab_value)
+    "url" site.BaseURL)
+  "publisher" (dict
+    "@type" "LegalService"
+    "name" $contact.brand
+    "url" site.BaseURL
+    "areaServed" "BR"
+    "email" $contact.email
+    "telephone" $contact.phone)
+}}
+<script type="application/ld+json">{{ $schema | jsonify (dict "indent" "  ") | safeJS }}</script>
+{{ with $page.Params.faq }}
+  {{ $entities := slice }}
+  {{ range . }}
+    {{ $entities = $entities | append (dict
+      "@type" "Question"
+      "name" .q
+      "acceptedAnswer" (dict "@type" "Answer" "text" .a)) }}
+  {{ end }}
+  {{ $faq := dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $entities }}
+  <script type="application/ld+json">{{ $faq | jsonify (dict "indent" "  ") | safeJS }}</script>
+{{ end }}

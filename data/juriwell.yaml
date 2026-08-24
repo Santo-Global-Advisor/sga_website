@@ -1,0 +1,52 @@
+# Juriwell integration for the guide lead-magnet CTA.
+#
+# `endpoint` receives the email capture (POST JSON: email, name, service,
+# message, source). Leave empty to disable the network call — the CTA then
+# still opens the Juriwell welcome page, so the flow never dead-ends.
+#
+# `welcome_url` is Jonathan's branded Juriwell office page. The CTA appends
+# ?topic=<guide topic key>&lang=<page language>&ref=<referral tag>.
+endpoint: ""
+welcome_url: "https://juriwell.com/welcome/santo-global-advisory"
+referral: "sga"
+source_prefix: "sga-guide"
+service: "immigration"
+
+en:
+  eyebrow: "Free guide"
+  title: "Get <em>Move to Brazil</em> — the full 32-chapter guide."
+  body: "Written by Jonathan Stephan, Brazilian licensed lawyer (OAB/SP 379172). Immigration pathways, tax residency, property, banking and the first 30 days — checked against gov.br sources for the 2026 edition."
+  hook: "You will also get access to my Juriwell office, where I stay in touch with clients, answer questions on this topic quickly, and use AI to give you a first read on your situation before we ever schedule a call."
+  placeholder: "your@email.com"
+  submit: "Send me the guide"
+  note: "One email with the guide. No newsletter spam. Unsubscribe any time."
+  loading: "Sending…"
+  success: "Check your inbox — opening Jonathan's Juriwell office now."
+  error: "That did not go through. Email jonathanstephan23@gmail.com and we will send it directly."
+  invalid: "Please enter a valid email address."
+
+fr:
+  eyebrow: "Guide gratuit"
+  title: "Recevez <em>Move to Brazil</em> — le guide complet en 32 chapitres."
+  body: "Rédigé par Jonathan Stephan, avocat brésilien agréé (OAB/SP 379172). Voies d'immigration, résidence fiscale, immobilier, banque et les 30 premiers jours — vérifié auprès des sources gov.br pour l'édition 2026."
+  hook: "Vous accéderez aussi à mon bureau Juriwell, où je reste en contact avec mes clients, réponds rapidement aux questions sur ce sujet et utilise l'IA pour vous donner une première lecture de votre situation avant même de fixer un rendez-vous."
+  placeholder: "votre@email.com"
+  submit: "Envoyez-moi le guide"
+  note: "Un seul email avec le guide. Pas de newsletter intempestive. Désinscription à tout moment."
+  loading: "Envoi en cours…"
+  success: "Vérifiez votre boîte mail — ouverture du bureau Juriwell de Jonathan."
+  error: "L'envoi a échoué. Écrivez à jonathanstephan23@gmail.com et nous vous l'enverrons directement."
+  invalid: "Merci d'indiquer une adresse email valide."
+
+pt:
+  eyebrow: "Guia gratuito"
+  title: "Receba o <em>Move to Brazil</em> — o guia completo em 32 capítulos."
+  body: "Escrito por Jonathan Stephan, advogado brasileiro inscrito (OAB/SP 379172). Caminhos migratórios, residência fiscal, imóveis, bancos e os primeiros 30 dias — conferido nas fontes gov.br para a edição 2026."
+  hook: "Você também recebe acesso ao meu escritório no Juriwell, onde mantenho contato com os clientes, respondo rápido às dúvidas sobre este tema e uso IA para dar uma primeira leitura do seu caso antes mesmo de marcarmos uma conversa."
+  placeholder: "seu@email.com"
+  submit: "Quero o guia"
+  note: "Um email com o guia. Sem newsletter invasiva. Cancele quando quiser."
+  loading: "Enviando…"
+  success: "Confira seu email — abrindo o escritório Juriwell do Jonathan."
+  error: "Não foi possível enviar. Escreva para jonathanstephan23@gmail.com que enviamos direto."
+  invalid: "Informe um endereço de email válido."

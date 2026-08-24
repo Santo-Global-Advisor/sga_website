@@ -1,0 +1,44 @@
+{{ define "main" }}
+  {{ $lang := .Site.Language.Lang }}
+  {{ $contact := index site.Data.contact $lang }}
+  {{ $pages := .RegularPages.ByParam "weight" }}
+  <section class="subpage-hero">
+    <div class="container">
+      <a href="{{ relLangURL "/" }}" class="back-link">← {{ T "back_to_overview" }}</a>
+      <span class="eyebrow subpage-eyebrow">{{ .Params.hero.eyebrow }}</span>
+      <h1>{{ .Params.hero.title_html | safeHTML }}</h1>
+      <p class="lede subpage-summary">{{ .Params.hero.summary }}</p>
+    </div>
+  </section>
+
+  <section class="subpage-content guide-index">
+    <div class="container">
+      {{ range $group := .Params.groups }}
+        <div class="guide-group reveal">
+          <div class="guide-group-head">
+            <span class="cat-num">— {{ $group.n }}</span>
+            <h3>{{ $group.title }}</h3>
+            {{ with $group.desc }}<p class="guide-group-desc">{{ . }}</p>{{ end }}
+          </div>
+          <div class="guide-grid">
+            {{ range $key := $group.items }}
+              {{ range $pages }}
+                {{ if eq .Params.guide_key $key }}
+                  <a class="guide-card" href="{{ .RelPermalink }}">
+                    <span class="guide-card-tag">{{ .Params.tag }}</span>
+                    <h4 class="guide-card-title">{{ .Title }}</h4>
+                    <p class="guide-card-desc">{{ .Params.summary }}</p>
+                    <span class="guide-card-meta">{{ .Params.reading_time }} {{ T "min_read" }} <span class="arrow">→</span></span>
+                  </a>
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ partial "guide-cta.html" (dict "page" . "lang" $lang) }}
+  {{ partial "final-cta.html" (dict "page" . "cta" .Params.final_cta "contact" $contact) }}
+{{ end }}

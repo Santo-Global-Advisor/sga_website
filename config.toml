@@ -7,6 +7,7 @@ defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 enableRobotsTXT = true
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm", "term"]
+enableGitInfo = false
 cleanDestinationDir = true
 disableAliases = true
 taxonomies = {}
@@ -36,3 +37,16 @@ taxonomies = {}
     languageName = "Português"
     languageCode = "pt-BR"
     weight = 3
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.6
+  filename = "sitemap.xml"

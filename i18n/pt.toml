@@ -30,3 +30,39 @@ other = "Abrir menu"
 
 [close_menu]
 other = "Fechar menu"
+
+[guides]
+other = "Guias"
+
+[all_guides]
+other = "Todos os guias"
+
+[back_to_guides]
+other = "Voltar aos guias"
+
+[on_this_page]
+other = "Nesta página"
+
+[key_facts]
+other = "Pontos-chave"
+
+[official_sources]
+other = "Fontes oficiais"
+
+[related_guides]
+other = "Guias relacionados"
+
+[min_read]
+other = "min de leitura"
+
+[last_reviewed]
+other = "Revisado"
+
+[guide_disclaimer_title]
+other = "Informação geral, não é orientação sobre o seu caso"
+
+[guide_disclaimer_body]
+other = "As regras brasileiras de imigração, tributação e imóveis mudam, e a resposta correta depende da sua nacionalidade, renda, situação familiar e da atividade pretendida. Confirme os requisitos vigentes junto ao órgão brasileiro competente e obtenha orientação individualizada antes de qualquer passo irreversível."
+
+[written_by]
+other = "Escrito por"

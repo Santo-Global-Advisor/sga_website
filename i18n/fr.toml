@@ -30,3 +30,39 @@ other = "Ouvrir le menu"
 
 [close_menu]
 other = "Fermer le menu"
+
+[guides]
+other = "Guides"
+
+[all_guides]
+other = "Tous les guides"
+
+[back_to_guides]
+other = "Retour aux guides"
+
+[on_this_page]
+other = "Sur cette page"
+
+[key_facts]
+other = "Points clés"
+
+[official_sources]
+other = "Sources officielles"
+
+[related_guides]
+other = "Guides liés"
+
+[min_read]
+other = "min de lecture"
+
+[last_reviewed]
+other = "Vérifié"
+
+[guide_disclaimer_title]
+other = "Information générale, pas un conseil sur votre dossier"
+
+[guide_disclaimer_body]
+other = "Les règles brésiliennes d'immigration, de fiscalité et d'immobilier évoluent, et la bonne réponse dépend de votre nationalité, de vos revenus, de votre situation familiale et de l'activité envisagée. Vérifiez les exigences en vigueur auprès de l'autorité brésilienne compétente et obtenez un conseil individualisé avant toute étape irréversible."
+
+[written_by]
+other = "Rédigé par"

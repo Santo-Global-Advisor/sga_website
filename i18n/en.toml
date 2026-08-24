@@ -30,3 +30,39 @@ other = "Open menu"
 
 [close_menu]
 other = "Close menu"
+
+[guides]
+other = "Guides"
+
+[all_guides]
+other = "All guides"
+
+[back_to_guides]
+other = "Back to guides"
+
+[on_this_page]
+other = "On this page"
+
+[key_facts]
+other = "Key facts"
+
+[official_sources]
+other = "Official sources"
+
+[related_guides]
+other = "Related guides"
+
+[min_read]
+other = "min read"
+
+[last_reviewed]
+other = "Reviewed"
+
+[guide_disclaimer_title]
+other = "This is general information, not advice on your case"
+
+[guide_disclaimer_body]
+other = "Brazilian immigration, tax and property rules change, and the correct answer depends on your nationality, income, family situation and intended activity. Confirm current requirements with the relevant Brazilian authority, and get individualised counsel before any irreversible step."
+
+[written_by]
+other = "Written by"

@@ -1,0 +1,100 @@
+{{ define "main" }}
+  {{ $lang := .Site.Language.Lang }}
+  {{ $contact := index site.Data.contact $lang }}
+  {{ $section := .Parent }}
+
+  <article class="guide">
+    <section class="subpage-hero guide-hero">
+      <div class="container">
+        <a href="{{ $section.RelPermalink }}" class="back-link">← {{ T "back_to_guides" }}</a>
+        <span class="eyebrow subpage-eyebrow">{{ .Params.tag }}</span>
+        <h1>{{ .Title }}</h1>
+        <p class="lede subpage-summary">{{ .Params.summary }}</p>
+        <div class="guide-meta">
+          <span>{{ T "written_by" }} {{ $contact.lawyer_name }} · {{ $contact.oab_label }}/{{ $contact.oab_value }}</span>
+          <span>{{ T "last_reviewed" }} {{ .Lastmod.Format "January 2006" }}</span>
+          <span>{{ .Params.reading_time }} {{ T "min_read" }}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="subpage-content guide-body-wrap">
+      <div class="container guide-layout">
+        <aside class="guide-toc">
+          {{ with .Params.facts }}
+            <div class="guide-facts">
+              <span class="eyebrow">{{ T "key_facts" }}</span>
+              <dl>
+                {{ range . }}
+                  <dt>{{ .label }}</dt>
+                  <dd>{{ .value }}</dd>
+                {{ end }}
+              </dl>
+            </div>
+          {{ end }}
+          {{ with .TableOfContents }}
+            <nav class="guide-toc-nav" aria-label="{{ T "on_this_page" }}">
+              <span class="eyebrow">{{ T "on_this_page" }}</span>
+              {{ . }}
+            </nav>
+          {{ end }}
+        </aside>
+
+        <div class="guide-body">
+          {{ .Content }}
+
+          {{ with .Params.faq }}
+            <h2 id="faq">FAQ</h2>
+            <div class="faq-list guide-faq" data-accordion>
+              {{ range $i, $item := . }}
+                {{ $panelID := printf "guide-faq-%d" $i }}
+                <div class="faq-item{{ if eq $i 0 }} open{{ end }}" data-accordion-item{{ if eq $i 0 }} data-open-default="true"{{ end }}>
+                  <button class="faq-q" type="button" aria-expanded="{{ if eq $i 0 }}true{{ else }}false{{ end }}" aria-controls="{{ $panelID }}" data-accordion-button>
+                    <span>{{ $item.q }}</span>
+                    <span class="plus">+</span>
+                  </button>
+                  <div id="{{ $panelID }}" class="faq-a" data-accordion-panel aria-hidden="{{ if eq $i 0 }}false{{ else }}true{{ end }}">
+                    <div class="faq-a-inner">{{ $item.a }}</div>
+                  </div>
+                </div>
+              {{ end }}
+            </div>
+          {{ end }}
+
+          {{ with .Params.sources }}
+            <div class="guide-sources">
+              <span class="eyebrow">{{ T "official_sources" }}</span>
+              <ul>
+                {{ range . }}<li>{{ . }}</li>{{ end }}
+              </ul>
+            </div>
+          {{ end }}
+
+          <div class="guide-disclaimer">
+            <span class="eyebrow">{{ T "guide_disclaimer_title" }}</span>
+            <p>{{ T "guide_disclaimer_body" }}</p>
+          </div>
+
+          {{ $related := .Params.related }}
+          {{ with $related }}
+            <div class="guide-related">
+              <span class="eyebrow">{{ T "related_guides" }}</span>
+              <ul>
+                {{ range $key := . }}
+                  {{ range $section.RegularPages }}
+                    {{ if eq .Params.guide_key $key }}
+                      <li><a class="link-underline" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                    {{ end }}
+                  {{ end }}
+                {{ end }}
+              </ul>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  </article>
+
+  {{ partial "guide-cta.html" (dict "page" . "lang" $lang) }}
+  {{ partial "final-cta.html" (dict "page" . "cta" (dict "eyebrow" (T "counsel") "title_html" .Params.cta_title "summary" .Params.cta_summary "secondary" "whatsapp" "show_contact_strip" true) "contact" $contact) }}
+{{ end }}
