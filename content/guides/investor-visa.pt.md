@@ -27,6 +27,8 @@ facts:
     value: "Ao menos 14 dias a cada período de dois anos"
   - label: "Prazo inicial"
     value: "Até 2 anos, prorrogável, conversível em residência por prazo indeterminado"
+partner_key: "sjf"
+partner_note: "Comparando o Golden Visa português com esta via? Elas respondem a perguntas diferentes e custam diferente. Nosso parceiro português cuida do lado português."
 related: ["buying-property", "tax-residency", "rural-land"]
 cta_title: "Estruturar primeiro. <em>Adquirir depois.</em>"
 cta_summary: "Estrutura societária, due diligence de título, modelagem tributária e pedido migratório revistos como um plano só — antes de os recursos se moverem e enquanto a sequência ainda pode mudar."

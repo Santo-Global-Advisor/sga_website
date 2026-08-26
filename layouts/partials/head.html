@@ -27,6 +27,9 @@
 {{ if eq .Section "guides" }}
   {{ if .IsPage }}{{ partial "guide-schema.html" (dict "page" . "lang" .Site.Language.Lang) }}{{ end }}
 {{ end }}
+{{ if eq .Section "partners" }}
+  {{ if .IsPage }}{{ partial "partner-schema.html" (dict "page" . "lang" .Site.Language.Lang) }}{{ end }}
+{{ end }}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">

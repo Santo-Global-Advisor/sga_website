@@ -66,3 +66,30 @@ other = "Brazilian immigration, tax and property rules change, and the correct a
 
 [written_by]
 other = "Written by"
+
+[back_to_partners]
+other = "Back to partners"
+
+[partner_offices]
+other = "Offices"
+
+[partner_services]
+other = "What they handle"
+
+[our_scope]
+other = "What we handle"
+
+[visit_partner_site]
+other = "Visit partner site"
+
+[meet_our_partners]
+other = "Meet our partners"
+
+[partner_disclaimer_title]
+other = "Independent firms, coordinated work"
+
+[partner_disclaimer_body]
+other = "Santo Global Advisory and its partner firms are independent practices. Each advises within its own jurisdiction and under its own engagement letter: Brazilian law and tax with Santo Global Advisory, foreign immigration and investment with the partner firm. A referral does not change your fee arrangement with either firm, and neither firm assumes the other's professional liability."
+
+[partners]
+other = "Partners"

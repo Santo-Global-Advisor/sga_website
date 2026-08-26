@@ -25,6 +25,8 @@ facts:
     value: "Worldwide income and worldwide assets"
   - label: "Non-resident is taxed on"
     value: "Brazilian-source income only"
+partner_key: "sjf"
+partner_note: "Portugal is the other half of this question for many readers. Residence, and the Brazil–Portugal double-taxation convention, decide which system taxes what — our Portuguese partner covers that end."
 related: ["cpf", "digital-nomad-visa", "banking"]
 cta_title: "A small factual difference changes the answer entirely. <em>Do not guess this one.</em>"
 cta_summary: "Your exact visa type, your exact day count, whether a spouse remained abroad — each of these moves the outcome. One consultation settles your position in both countries."

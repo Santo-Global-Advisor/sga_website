@@ -70,6 +70,23 @@ faq_section:
   eyebrow: "FAQ"
   title: "Perguntas frequentes."
   sidebar: "Tem mais perguntas? Leve-as para a consulta — ou leia a FAQ completa."
+guides_section:
+  eyebrow: "Guias"
+  title: "A leitura antes da consulta."
+  sidebar: "Doze guias extraídos de Move to Brazil, nosso livro de mudança em 32 capítulos — vistos, residência fiscal, imóveis, bancos e os primeiros 30 dias."
+  intro: "Cada um trata de uma decisão que estrangeiros erram com frequência suficiente para custar dinheiro — e cada um diz onde fica de fato o limite entre ler e precisar de orientação."
+partners_section:
+  eyebrow: "Parceiros"
+  title: "Um corredor, orientação nas duas pontas."
+  sidebar: "Portugal e Brasil são duas pontas de uma mesma mudança. Nós seguramos a ponta brasileira; a SJF segura a portuguesa."
+  intro: "Clientes raramente chegam com um único país em mente — e responder «Portugal ou Brasil» com honestidade exige alguém licenciado dos dois lados."
+  items:
+    - n: "01"
+      title: "Rumo a Portugal"
+      desc: "Apresentamos você à SJF Immigration & Investments em Lisboa e permanecemos em tudo que tenha dimensão brasileira — tributação de saída, bens deixados no país, sucessão."
+    - n: "02"
+      title: "Rumo ao Brasil"
+      desc: "Os clientes da SJF que precisam de residência brasileira, análise de residência fiscal ou estrutura societária chegam a nós com a posição portuguesa já documentada."
 final_cta:
   eyebrow: "Começar"
   title_html: "Se você está realmente planejando se mudar para o Brasil, <em>agende sua consulta.</em>"

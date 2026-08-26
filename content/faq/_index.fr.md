@@ -1,6 +1,6 @@
 ---
 title: "FAQ"
-browser_title: "FAQ — Santo Global Advisory"
+browser_title: "FAQ — Questions fréquentes · Santo Global Advisory"
 description: "Questions fréquentes sur l'installation au Brésil, le périmètre d'intervention, les délais et la confidentialité."
 page_key: "faq"
 hero:

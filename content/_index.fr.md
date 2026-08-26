@@ -70,6 +70,23 @@ faq_section:
   eyebrow: "FAQ"
   title: "Questions fréquentes."
   sidebar: "D'autres questions ? Apportez-les en consultation — ou consultez la FAQ complète."
+guides_section:
+  eyebrow: "Guides"
+  title: "La lecture avant la consultation."
+  sidebar: "Douze guides tirés de Move to Brazil, notre livre d'installation en 32 chapitres — visas, résidence fiscale, immobilier, banque et les 30 premiers jours."
+  intro: "Chacun porte sur une décision que les étrangers manquent assez souvent pour que cela leur coûte cher — et chacun indique où se situe vraiment la limite entre lire et devoir consulter."
+partners_section:
+  eyebrow: "Partenaires"
+  title: "Un corridor, un conseil à chaque extrémité."
+  sidebar: "Le Portugal et le Brésil sont les deux extrémités d'un même projet. Nous tenons l'extrémité brésilienne ; SJF tient la portugaise."
+  intro: "Les clients arrivent rarement avec un seul pays en tête — et répondre honnêtement à « le Portugal ou le Brésil » suppose quelqu'un d'agréé des deux côtés."
+  items:
+    - n: "01"
+      title: "Vers le Portugal"
+      desc: "Nous vous présentons SJF Immigration & Investments à Lisbonne et restons sur tout ce qui comporte une dimension brésilienne — fiscalité de sortie, actifs laissés sur place, succession."
+    - n: "02"
+      title: "Vers le Brésil"
+      desc: "Les clients de SJF qui ont besoin d'une résidence brésilienne, d'une analyse de résidence fiscale ou d'une structure sociale nous arrivent avec leur position portugaise déjà documentée."
 final_cta:
   eyebrow: "Commencer"
   title_html: "Si votre projet d'installation au Brésil est sérieux, <em>réservez votre consultation.</em>"

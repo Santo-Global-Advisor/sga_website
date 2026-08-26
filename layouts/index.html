@@ -342,5 +342,79 @@
     </div>
   </section>
 
+  <section id="guides">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="num-label">
+          <span class="num">— 11</span>
+          <br>
+          <span class="eyebrow label-offset">{{ .Params.guides_section.eyebrow }}</span>
+        </div>
+        <h2>{{ .Params.guides_section.title }}</h2>
+      </div>
+
+      <div class="partners-teaser">
+        <div class="num-label reveal">
+          <p class="mono-small">{{ .Params.guides_section.sidebar }}</p>
+          <a href="{{ relLangURL "/guides/" }}" class="link-underline section-link">
+            {{ T "all_guides" }}
+            <span>→</span>
+          </a>
+        </div>
+        <div>
+          <p class="reloc-intro reveal">{{ .Params.guides_section.intro }}</p>
+          {{/* Groups are read from the guides section page so the homepage
+               teaser cannot drift out of sync with the guides index itself. */}}
+          {{ with site.GetPage "/guides" }}
+            <div class="reloc-grid">
+              {{ range $index, $group := .Params.groups }}
+                <div class="reloc-item reveal reveal-delay-{{ cond (gt (add $index 1) 4) 4 (add $index 1) }}">
+                  <span class="num">— {{ $group.n }}</span>
+                  <span class="reloc-item-title">{{ $group.title }}</span>
+                  <span class="reloc-item-desc">{{ $group.desc }}</span>
+                </div>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="num-label">
+          <span class="num">— 12</span>
+          <br>
+          <span class="eyebrow label-offset">{{ .Params.partners_section.eyebrow }}</span>
+        </div>
+        <h2>{{ .Params.partners_section.title }}</h2>
+      </div>
+
+      <div class="partners-teaser">
+        <div class="num-label reveal">
+          <p class="mono-small">{{ .Params.partners_section.sidebar }}</p>
+          <a href="{{ relLangURL "/partners/" }}" class="link-underline section-link">
+            {{ T "meet_our_partners" }}
+            <span>→</span>
+          </a>
+        </div>
+        <div>
+          <p class="reloc-intro reveal">{{ .Params.partners_section.intro }}</p>
+          <div class="reloc-grid">
+            {{ range $index, $item := .Params.partners_section.items }}
+              <div class="reloc-item reveal reveal-delay-{{ add $index 1 }}">
+                <span class="num">— {{ $item.n }}</span>
+                <span class="reloc-item-title">{{ $item.title }}</span>
+                <span class="reloc-item-desc">{{ $item.desc }}</span>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   {{ partial "final-cta.html" (dict "page" . "cta" .Params.final_cta "contact" $contact "id" "contact") }}
 {{ end }}

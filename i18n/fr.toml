@@ -66,3 +66,30 @@ other = "Les règles brésiliennes d'immigration, de fiscalité et d'immobilier 
 
 [written_by]
 other = "Rédigé par"
+
+[back_to_partners]
+other = "Retour aux partenaires"
+
+[partner_offices]
+other = "Bureaux"
+
+[partner_services]
+other = "Ce qu'ils prennent en charge"
+
+[our_scope]
+other = "Ce que nous prenons en charge"
+
+[visit_partner_site]
+other = "Voir le site du partenaire"
+
+[meet_our_partners]
+other = "Voir nos partenaires"
+
+[partner_disclaimer_title]
+other = "Cabinets indépendants, travail coordonné"
+
+[partner_disclaimer_body]
+other = "Santo Global Advisory et ses cabinets partenaires sont des structures indépendantes. Chacune conseille dans sa propre juridiction et au titre de sa propre lettre de mission : le droit et la fiscalité brésiliens avec Santo Global Advisory, l'immigration et l'investissement à l'étranger avec le cabinet partenaire. Une recommandation ne modifie pas vos honoraires auprès de l'un ou l'autre cabinet, et aucun n'assume la responsabilité professionnelle de l'autre."
+
+[partners]
+other = "Partenaires"

@@ -66,3 +66,30 @@ other = "As regras brasileiras de imigração, tributação e imóveis mudam, e 
 
 [written_by]
 other = "Escrito por"
+
+[back_to_partners]
+other = "Voltar aos parceiros"
+
+[partner_offices]
+other = "Escritórios"
+
+[partner_services]
+other = "O que eles conduzem"
+
+[our_scope]
+other = "O que nós conduzimos"
+
+[visit_partner_site]
+other = "Visitar o site do parceiro"
+
+[meet_our_partners]
+other = "Conheça nossos parceiros"
+
+[partner_disclaimer_title]
+other = "Escritórios independentes, trabalho coordenado"
+
+[partner_disclaimer_body]
+other = "A Santo Global Advisory e seus escritórios parceiros são estruturas independentes. Cada uma orienta dentro da própria jurisdição e sob o próprio contrato de honorários: direito e tributação brasileiros com a Santo Global Advisory, imigração e investimento no exterior com o escritório parceiro. Uma indicação não altera seus honorários com qualquer um dos escritórios, e nenhum assume a responsabilidade profissional do outro."
+
+[partners]
+other = "Parceiros"

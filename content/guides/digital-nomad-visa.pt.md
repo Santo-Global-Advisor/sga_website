@@ -25,6 +25,8 @@ facts:
     value: "Em até 90 dias da chegada (Polícia Federal, CRNM)"
   - label: "Base legal"
     value: "RN 45/2022 (CNIg), sob a Lei 13.445/2017"
+partner_key: "sjf"
+partner_note: "O D8 português é a alternativa habitual ao VITEM XIV brasileiro, e os testes de renda não são equivalentes. Nosso parceiro português cobre o D8."
 related: ["tax-residency", "cpf", "banking"]
 cta_title: "Renda remota, endereço brasileiro, dois sistemas tributários. <em>Revise o sequenciamento.</em>"
 cta_summary: "Uma consulta de uma hora cobre elegibilidade, prazo de renovação e a posição de residência fiscal em que você está prestes a entrar — antes do protocolo."

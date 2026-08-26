@@ -1,6 +1,6 @@
 ---
 title: "FAQ"
-browser_title: "FAQ — Santo Global Advisory"
+browser_title: "FAQ — Perguntas frequentes · Santo Global Advisory"
 description: "Perguntas frequentes sobre mudança para o Brasil, escopo de trabalho, prazos e confidencialidade."
 page_key: "faq"
 hero:

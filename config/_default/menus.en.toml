@@ -37,3 +37,11 @@ weight = 5
 
 [main.params]
 page = "/guides/"
+
+[[main]]
+name = "Partners"
+identifier = "partners"
+weight = 6
+
+[main.params]
+page = "/partners/"

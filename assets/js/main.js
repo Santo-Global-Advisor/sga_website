@@ -109,7 +109,7 @@
   function setHomeSectionTracking() {
     if (!body || body.getAttribute("data-page") !== "home") return;
 
-    var ids = ["top", "fit", "personas", "services", "pathways", "investment", "relocation", "process", "consultation", "faq", "contact"];
+    var ids = ["top", "fit", "personas", "services", "pathways", "investment", "relocation", "process", "consultation", "faq", "guides", "partners", "contact"];
     var map = {
       services: "services",
       pathways: "pathways",
@@ -118,6 +118,8 @@
       process: "process",
       consultation: "process",
       faq: "faq",
+      guides: "guides",
+      partners: "partners",
       contact: "faq"
     };
     var links = document.querySelectorAll("[data-nav-key]");

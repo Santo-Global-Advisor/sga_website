@@ -25,6 +25,8 @@ facts:
     value: "Carta bancária oficial confirmando a capacidade de transferência"
   - label: "Após a chegada"
     value: "Registro na Polícia Federal dentro do prazo do visto"
+partner_key: "sjf"
+partner_note: "O D7 português é o equivalente mais próximo desta via para pensões e rendimentos passivos. Nosso parceiro português cuida disso."
 related: ["tax-residency", "buying-property", "cost-of-living"]
 cta_title: "O visto é simples. <em>Uma aposentadoria entre dois sistemas tributários, não.</em>"
 cta_summary: "Uma consulta cobrindo elegibilidade, documentação, e como sua aposentadoria e seus ativos mundiais serão de fato tratados uma vez residente aqui."

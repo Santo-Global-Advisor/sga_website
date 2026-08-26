@@ -27,6 +27,8 @@ facts:
     value: "Au moins 14 jours par période de deux ans"
   - label: "Durée initiale"
     value: "Jusqu'à 2 ans, prorogeable, convertible en résidence indéfinie"
+partner_key: "sjf"
+partner_note: "Vous comparez le Golden Visa portugais à cette voie ? Ils répondent à des questions différentes et coûtent différemment. Notre partenaire portugais traite le volet portugais."
 related: ["buying-property", "tax-residency", "rural-land"]
 cta_title: "Structurer d'abord. <em>Acquérir ensuite.</em>"
 cta_summary: "Structure de détention, diligence sur le titre, modélisation fiscale et dépôt migratoire revus comme un seul plan — avant que les fonds ne bougent et tant que la séquence peut encore changer."

@@ -25,6 +25,8 @@ facts:
     value: "Dans les 90 jours suivant l'arrivée (Police fédérale, CRNM)"
   - label: "Base légale"
     value: "RN 45/2022 (CNIg), sous la Lei 13.445/2017"
+partner_key: "sjf"
+partner_note: "Le D8 portugais est l'alternative habituelle au VITEM XIV brésilien, et les critères de revenus ne sont pas équivalents. Notre partenaire portugais couvre le D8."
 related: ["tax-residency", "cpf", "banking"]
 cta_title: "Revenus à distance, adresse brésilienne, deux systèmes fiscaux. <em>Faites revoir l'enchaînement.</em>"
 cta_summary: "Une consultation d'une heure couvre votre éligibilité, votre calendrier de renouvellement et la position de résidence fiscale dans laquelle vous vous engagez — avant le dépôt."

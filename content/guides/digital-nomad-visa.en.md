@@ -25,6 +25,8 @@ facts:
     value: "Within 90 days of arrival (Federal Police, CRNM)"
   - label: "Legal basis"
     value: "RN 45/2022 (CNIg), under Lei 13.445/2017"
+partner_key: "sjf"
+partner_note: "Portugal's D8 is the usual alternative to Brazil's VITEM XIV, and the income tests are not equivalent. Our Portuguese partner covers the D8."
 related: ["tax-residency", "cpf", "banking"]
 cta_title: "Remote income, Brazilian address, two tax systems. <em>Get the sequencing reviewed.</em>"
 cta_summary: "A one-hour consultation covers your eligibility, your renewal timeline, and the tax-residence position you are about to walk into — before you file."

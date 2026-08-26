@@ -25,6 +25,8 @@ facts:
     value: "Renda e ativos mundiais"
   - label: "O não residente é tributado sobre"
     value: "Apenas renda de fonte brasileira"
+partner_key: "sjf"
+partner_note: "Portugal é a outra metade desta pergunta para muitos leitores. A residência, e a convenção Brasil–Portugal contra a dupla tributação, decidem qual sistema tributa o quê — nosso parceiro português cobre essa ponta."
 related: ["cpf", "digital-nomad-visa", "banking"]
 cta_title: "Uma pequena diferença de fato muda toda a resposta. <em>Não chute neste ponto.</em>"
 cta_summary: "Seu tipo exato de visto, sua contagem exata de dias, se um cônjuge permaneceu no exterior — cada um move o resultado. Uma consulta define sua posição nos dois países."

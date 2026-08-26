@@ -52,7 +52,6 @@ make clean
 - [`layouts/`](./layouts/) Hugo templates and partials
 - [`assets/scss/`](./assets/scss/) site styles
 - [`assets/js/`](./assets/js/) progressive-enhancement JavaScript
-- [`zip/`](./zip/) original exported HTML, CSS, and data source
 
 ## Editing Content
 
@@ -76,15 +75,22 @@ Short UI labels such as button and navigation text live in:
 
 ## Languages and Routes
 
-- English: `/`
+`defaultContentLanguageInSubdir` is enabled, so every language lives in its own
+subdirectory and `/` is a redirect rather than a route:
+
+- English: `/en/` (`/` redirects here)
 - French: `/fr/`
 - Portuguese: `/pt/`
 
-The site also includes dedicated routes for:
+Each language carries the same four section routes:
 
-- `/services/`
-- `/faq/`
-- `/fr/services/`
-- `/fr/faq/`
-- `/pt/services/`
-- `/pt/faq/`
+- `/<lang>/services/`
+- `/<lang>/faq/`
+- `/<lang>/guides/` and `/<lang>/guides/<slug>/`
+- `/<lang>/partners/` and `/<lang>/partners/<slug>/`
+
+Section paths are identical in every language; only individual page slugs are
+localised. `/en/guides/cpf-for-foreigners-in-brazil/` is
+`/pt/guides/cpf-para-estrangeiros-no-brasil/` in Portuguese. Translations are
+linked by a shared `translationKey` in front matter, which is what makes the
+language switcher and the `hreflang` tags resolve across differing slugs.

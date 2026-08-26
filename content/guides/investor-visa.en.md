@@ -27,6 +27,8 @@ facts:
     value: "At least 14 days in each two-year period"
   - label: "Initial term"
     value: "Up to 2 years, extendable, convertible to indefinite residence"
+partner_key: "sjf"
+partner_note: "Weighing Portugal's Golden Visa against this route? They answer different questions and carry different costs. Our Portuguese partner handles the Portuguese side."
 related: ["buying-property", "tax-residency", "rural-land"]
 cta_title: "Structure first. <em>Acquire second.</em>"
 cta_summary: "Entity structure, title diligence, tax modelling and the immigration filing reviewed as one plan — before funds move and while the sequence can still be changed."

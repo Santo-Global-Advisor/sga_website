@@ -70,6 +70,19 @@
             </div>
           {{ end }}
 
+          {{ with .Params.partner_key }}
+            {{ $pkey := . }}
+            {{ range where site.RegularPages "Section" "partners" }}
+              {{ if eq .Params.partner_key $pkey }}
+                <div class="guide-partner">
+                  <span class="eyebrow">{{ T "partners" }}</span>
+                  <p>{{ $.Params.partner_note }}</p>
+                  <p><a class="link-underline" href="{{ .RelPermalink }}">{{ .Params.partner_name }} <span class="arrow">&rarr;</span></a></p>
+                </div>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+
           <div class="guide-disclaimer">
             <span class="eyebrow">{{ T "guide_disclaimer_title" }}</span>
             <p>{{ T "guide_disclaimer_body" }}</p>

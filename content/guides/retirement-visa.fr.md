@@ -25,6 +25,8 @@ facts:
     value: "Attestation bancaire officielle confirmant la capacité de transfert"
   - label: "Après l'arrivée"
     value: "Enregistrement auprès de la Police fédérale dans le délai du visa"
+partner_key: "sjf"
+partner_note: "Le D7 portugais est l'équivalent le plus proche de cette voie pour les pensions et revenus passifs. Notre partenaire portugais s'en charge."
 related: ["tax-residency", "buying-property", "cost-of-living"]
 cta_title: "Un visa retraite est simple. <em>Une pension à cheval sur deux fiscalités ne l'est pas.</em>"
 cta_summary: "Une consultation couvrant l'éligibilité, les justificatifs, et le traitement réel de votre pension et de vos actifs mondiaux une fois résident ici."

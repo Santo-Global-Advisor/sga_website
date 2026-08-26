@@ -25,6 +25,8 @@ facts:
     value: "Official bank letter confirming transfer capacity"
   - label: "After arrival"
     value: "Federal Police registration within the visa deadline"
+partner_key: "sjf"
+partner_note: "Portugal's D7 is the closest counterpart to this pathway for pension and passive income. Our Portuguese partner handles it."
 related: ["tax-residency", "buying-property", "cost-of-living"]
 cta_title: "A retirement visa is straightforward. <em>A pension crossing two tax systems is not.</em>"
 cta_summary: "One consultation covering eligibility, documentation, and how your pension and worldwide assets will actually be treated once you are resident here."

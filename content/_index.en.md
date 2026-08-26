@@ -70,6 +70,23 @@ faq_section:
   eyebrow: "FAQ"
   title: "Frequently asked questions."
   sidebar: "More questions? Bring them to your consultation — or read the full FAQ."
+guides_section:
+  eyebrow: "Guides"
+  title: "The reading before the consultation."
+  sidebar: "Twelve guides drawn from Move to Brazil, our 32-chapter relocation book — visas, tax residency, property, banking and the first 30 days."
+  intro: "Each one covers a decision foreigners get wrong often enough that it costs them money — and each one says where the line between reading and needing counsel actually sits."
+partners_section:
+  eyebrow: "Partners"
+  title: "One corridor, counsel at both ends."
+  sidebar: "Portugal and Brazil are two ends of one move. We hold the Brazilian end; SJF holds the Portuguese one."
+  intro: "Clients rarely arrive with a single country in mind — and answering \"Portugal or Brazil\" honestly takes someone licensed on both sides."
+  items:
+    - n: "01"
+      title: "Heading to Portugal"
+      desc: "We introduce you to SJF Immigration & Investments in Lisboa, and stay on anything with a Brazilian dimension — exit tax, assets left behind, succession."
+    - n: "02"
+      title: "Coming to Brazil"
+      desc: "SJF's clients needing Brazilian residence, a tax-residence analysis or a corporate structure come to us with their Portuguese position already documented."
 final_cta:
   eyebrow: "Begin"
   title_html: "If you are seriously planning a move to Brazil, <em>book your consultation.</em>"

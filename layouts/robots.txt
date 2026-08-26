@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+{{ range site.Languages -}}
+Sitemap: {{ printf "%s/%s/sitemap.xml" (strings.TrimRight "/" site.BaseURL) .Lang }}
+{{ end -}}

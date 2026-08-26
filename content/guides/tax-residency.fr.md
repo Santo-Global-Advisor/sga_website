@@ -25,6 +25,8 @@ facts:
     value: "Ses revenus et actifs mondiaux"
   - label: "Le non-résident est imposé sur"
     value: "Les seuls revenus de source brésilienne"
+partner_key: "sjf"
+partner_note: "Le Portugal constitue l'autre moitié de cette question pour beaucoup de lecteurs. La résidence, et la convention de double imposition Brésil–Portugal, déterminent quel système impose quoi — notre partenaire portugais couvre cette extrémité."
 related: ["cpf", "digital-nomad-visa", "banking"]
 cta_title: "Un détail factuel change entièrement la réponse. <em>Ne devinez pas sur ce point.</em>"
 cta_summary: "Votre type de visa exact, votre décompte de jours exact, le fait qu'un conjoint soit resté à l'étranger : chacun déplace le résultat. Une consultation règle votre position dans les deux pays."

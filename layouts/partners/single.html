@@ -1,0 +1,110 @@
+{{ define "main" }}
+  {{ $lang := .Site.Language.Lang }}
+  {{ $contact := index site.Data.contact $lang }}
+  {{ $section := .Parent }}
+  {{ $guides := where site.RegularPages "Section" "guides" }}
+
+  <article class="partner">
+    <section class="subpage-hero">
+      <div class="container">
+        <a href="{{ $section.RelPermalink }}" class="back-link">← {{ T "back_to_partners" }}</a>
+        <span class="eyebrow subpage-eyebrow">{{ .Params.tag }}</span>
+        <h1>{{ .Title }}</h1>
+        <p class="lede subpage-summary">{{ .Params.summary }}</p>
+        <div class="guide-meta">
+          <span>{{ .Params.partner_country }}</span>
+          <span><a class="link-underline" href="{{ .Params.partner_url }}" target="_blank" rel="noopener noreferrer">{{ .Params.partner_url_label }}</a></span>
+          <span>{{ T "last_reviewed" }} {{ .Lastmod.Format "January 2006" }}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="subpage-content">
+      <div class="container guide-layout">
+        <aside class="guide-toc">
+          {{ with .Params.facts }}
+            <div class="guide-facts">
+              <span class="eyebrow">{{ T "key_facts" }}</span>
+              <dl>
+                {{ range . }}
+                  <dt>{{ .label }}</dt>
+                  <dd>{{ .value }}</dd>
+                {{ end }}
+              </dl>
+            </div>
+          {{ end }}
+          {{ with .Params.offices }}
+            <div class="guide-facts">
+              <span class="eyebrow">{{ T "partner_offices" }}</span>
+              <dl>
+                {{ range . }}
+                  <dt>{{ .city }}</dt>
+                  <dd>{{ .address }}</dd>
+                {{ end }}
+              </dl>
+            </div>
+          {{ end }}
+        </aside>
+
+        <div class="guide-body">
+          {{ .Content }}
+
+          {{ with .Params.partner_services }}
+            <h2 id="partner-services">{{ T "partner_services" }}</h2>
+            <div class="reloc-grid">
+              {{ range . }}
+                <div class="reloc-item">
+                  <span class="num">— {{ .n }}</span>
+                  <span class="reloc-item-title">{{ .title }}</span>
+                  <span class="reloc-item-desc">{{ .desc }}</span>
+                </div>
+              {{ end }}
+            </div>
+          {{ end }}
+
+          {{ with .Params.sga_services }}
+            <h2 id="our-scope">{{ T "our_scope" }}</h2>
+            <div class="reloc-grid">
+              {{ range . }}
+                <div class="reloc-item">
+                  <span class="num">— {{ .n }}</span>
+                  <span class="reloc-item-title">{{ .title }}</span>
+                  <span class="reloc-item-desc">{{ .desc }}</span>
+                </div>
+              {{ end }}
+            </div>
+          {{ end }}
+
+          <p class="partner-external">
+            <a class="btn ghost" href="{{ .Params.partner_url }}" target="_blank" rel="noopener noreferrer">
+              {{ T "visit_partner_site" }}
+              <span class="arrow">→</span>
+            </a>
+          </p>
+
+          <div class="guide-disclaimer">
+            <span class="eyebrow">{{ T "partner_disclaimer_title" }}</span>
+            <p>{{ T "partner_disclaimer_body" }}</p>
+          </div>
+
+          {{ with .Params.related_guides }}
+            <div class="guide-related">
+              <span class="eyebrow">{{ T "related_guides" }}</span>
+              <ul>
+                {{ range $key := . }}
+                  {{ range $guides }}
+                    {{ if eq .Params.guide_key $key }}
+                      <li><a class="link-underline" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                    {{ end }}
+                  {{ end }}
+                {{ end }}
+              </ul>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  </article>
+
+  {{ partial "final-cta.html" (dict "page" . "cta" (dict "eyebrow" (T "counsel") "title_html" .Params.cta_title "summary" .Params.cta_summary "secondary" "whatsapp" "show_contact_strip" true) "contact" $contact) }}
+{{ end }}

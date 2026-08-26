@@ -1,0 +1,43 @@
+{{/* Organization JSON-LD for a partner profile page. The page's purpose is to
+     assert a relationship between two named firms with verifiable addresses,
+     so both nodes are emitted. Deliberately not FAQPage — the partner Q&As are
+     commercial, not the informational content that rich result targets. */}}
+{{ $page := .page }}
+{{ $lang := .lang }}
+{{ $contact := index site.Data.contact $lang }}
+{{ $addresses := slice }}
+{{ range $page.Params.offices }}
+  {{ $addresses = $addresses | append (dict
+    "@type" "PostalAddress"
+    "streetAddress" .address
+    "addressLocality" .city
+    "addressCountry" "PT") }}
+{{ end }}
+{{ $partner := dict
+  "@type" "Organization"
+  "name" $page.Params.partner_name
+  "url" $page.Params.partner_url
+  "sameAs" (slice $page.Params.partner_url)
+  "description" $page.Params.summary
+  "areaServed" "PT"
+}}
+{{ with $addresses }}{{ $partner = merge $partner (dict "address" .) }}{{ end }}
+{{ $sga := dict
+  "@type" "LegalService"
+  "name" $contact.brand
+  "url" site.BaseURL
+  "areaServed" "BR"
+  "email" $contact.email
+  "telephone" $contact.phone
+}}
+{{ $schema := dict
+  "@context" "https://schema.org"
+  "@type" "WebPage"
+  "name" $page.Title
+  "description" $page.Params.description
+  "inLanguage" $page.Site.Language.LanguageCode
+  "url" $page.Permalink
+  "about" $partner
+  "publisher" $sga
+}}
+<script type="application/ld+json">{{ $schema | jsonify (dict "indent" "  ") | safeJS }}</script>
