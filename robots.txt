@@ -1,1 +1,6 @@
 User-agent: *
+Allow: /
+
+Sitemap: https://santoglobaladvisory.com/en/sitemap.xml
+Sitemap: https://santoglobaladvisory.com/fr/sitemap.xml
+Sitemap: https://santoglobaladvisory.com/pt/sitemap.xml
