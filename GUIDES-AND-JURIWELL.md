@@ -39,12 +39,23 @@ cross-linking, FAQ schema, key-facts sidebar, official-source list, and a Juriwe
 - `assets/js/main.js` — `setJuriwellForms()` handler
 - `i18n/{en,fr,pt}.toml` — 12 new keys
 
-**Verified:** `hugo` builds clean; hreflang and the language switcher resolve across localised slugs;
-per-language sitemaps carry 16 URLs each; JS passes `node --check`.
+**Verified:** `hugo` builds clean; hreflang (`x-default` → English) and the language switcher resolve across
+localised slugs; per-language sitemaps carry 16 URLs each; all JSON-LD parses; no broken internal links;
+JS passes `node --check`.
 
 ---
 
-## 2. How the CTA flow works today
+## 2. How the CTA works today
+
+**The Juriwell CTA is off by default** (`enabled: false` in `data/juriwell.yaml`). While off, the
+`guide-cta.html` partial renders nothing, and every guide and the guides index end with the site's standard
+`final-cta` block (book a consultation + WhatsApp + contact strip). No Juriwell backend is needed, nothing is
+captured, and no built page references Juriwell. **The guides can merge and deploy on their own.**
+
+Switch to the Juriwell form only when Tracks A + C1 are live: set `enabled: true` (then fill `endpoint`).
+Re-check the form copy first — it currently promises a guide by email (B1) and AI answers (C4).
+
+The rest of this section describes the Juriwell mode (`enabled: true`):
 
 ```
 Reader hits any guide

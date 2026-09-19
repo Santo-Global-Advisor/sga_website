@@ -170,8 +170,14 @@
         if (!url) return;
         // Opened inside the submit handler's task so the popup blocker
         // still treats it as user-initiated.
-        var opened = window.open(url, "_blank", "noopener");
-        if (!opened) window.location.href = url;
+        // Not passing "noopener" as a feature: that makes window.open return
+        // null even on success, which would also trigger the same-tab fallback.
+        var opened = window.open(url, "_blank");
+        if (opened) {
+          opened.opener = null;
+        } else {
+          window.location.href = url;
+        }
       }
 
       form.addEventListener("submit", function (event) {

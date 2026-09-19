@@ -1,8 +1,11 @@
-{{/* Juriwell lead-magnet CTA.
-     Params: page (the current page), lang, jw (site.Data.juriwell) */}}
-{{ $page := .page }}
-{{ $lang := .lang }}
-{{ $jw := site.Data.juriwell }}
+{{/* Juriwell lead-magnet CTA. Renders only when `enabled: true` in data/juriwell.yaml,
+     i.e. once the Juriwell backend is live. While disabled the guides end with the
+     standard final-cta block (consultation + WhatsApp) and nothing else.
+     Params: page (the current page), lang */}}
+{{ with site.Data.juriwell }}{{ if .enabled }}
+{{ $page := $.page }}
+{{ $lang := $.lang }}
+{{ $jw := . }}
 {{ $copy := index $jw $lang }}
 {{ $topicKey := default "moving-to-brazil" $page.Params.juriwell_topic_key }}
 {{ $topicLabel := default $page.Title $page.Params.juriwell_topic }}
@@ -56,3 +59,4 @@
     </div>
   </div>
 </section>
+{{ end }}{{ end }}

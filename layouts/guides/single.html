@@ -12,7 +12,7 @@
         <p class="lede subpage-summary">{{ .Params.summary }}</p>
         <div class="guide-meta">
           <span>{{ T "written_by" }} {{ $contact.lawyer_name }} · {{ $contact.oab_label }}/{{ $contact.oab_value }}</span>
-          <span>{{ T "last_reviewed" }} {{ .Lastmod.Format "January 2006" }}</span>
+          <span>{{ T "last_reviewed" }} {{ .Lastmod | time.Format "January 2006" }}</span>
           <span>{{ .Params.reading_time }} {{ T "min_read" }}</span>
         </div>
       </div>
