@@ -1,6 +1,7 @@
 # SGA Guides + Juriwell integration — what shipped, what's next
 
-Written 2026-08-21. Source content: `Move to Brazil — A Practical Relocation Guide for Foreigners`
+Written 2026-08-21, updated 2026-09-19 (standalone release + re-enable runbook: sections 6 and 7).
+Source content: `Move to Brazil — A Practical Relocation Guide for Foreigners`
 (Santo Global Advisory, 2026 edition, 32 chapters).
 
 ---
@@ -148,9 +149,7 @@ Design decisions worth knowing:
 - **Add an OG image** | TLDR: `head.html` emits `og:title`/`og:description` but no `og:image`, so every
   WhatsApp and LinkedIn share renders as a grey box. One branded 1200×630 template with the guide title
   overlaid would do it. ~2 hours.
-- **Link the guides from the homepage** | TLDR: the nav entry exists, but the homepage — which is where all
-  the existing authority sits — has no path into `/guides/`. Add a section between `process` and
-  `consultation`. ~1 hour.
+- **~~Link the guides from the homepage~~** | Done: `layouts/index.html` has a `#guides` section (commit `281f052`).
 - **Cross-link from `/services/` and `/faq/`** | TLDR: `data/service_details.yaml` and `data/faqs.yaml` both
   discuss topics that now have a dedicated 1,500-word page behind them. Internal links from high-authority
   pages to new ones is the cheapest ranking lever you have. ~2 hours.
@@ -194,3 +193,125 @@ Design decisions worth knowing:
   needed. That is both the book's position and, commercially, the more credible one.
 - **Disclaimer renders on every guide** from `i18n` (`guide_disclaimer_title` / `guide_disclaimer_body`),
   mirroring the book's back matter.
+
+---
+
+## 6. Release log — guides shipped standalone (2026-09-19)
+
+The Juriwell backend was not live, which blocked merging the guides. The guides themselves never depended
+on it — only the CTA at the bottom of each one did — so the CTA was made switchable and shipped **off**.
+
+| Step | What | Where |
+|---|---|---|
+| 1 | Guides section, 36 articles, head/SEO rewrite, Juriwell CTA (`endpoint` empty) | PR #1, commit `587138d` |
+| 2 | `enabled` flag in `data/juriwell.yaml`, default `false`; `guide-cta.html` renders nothing when off, so guides end with the standard `final-cta` block (consultation + WhatsApp) | commit `c1d7ae6`, PR #2 (merge `1ba020d`) |
+| 3 | Review fixes (below) | same commit |
+| 4 | Deployed to production | `gh-pages` commit `b2c0e13`, live at https://santoglobaladvisory.com |
+
+**Why the fallback is "render nothing" and not a custom block.** A dedicated consultation + WhatsApp block was
+tried first. It rendered directly above `final-cta` with identical buttons and targets, so it was removed.
+The original "empty endpoint" behaviour was not safe to ship either: it showed "Check your inbox" although
+nothing was sent or stored, and opened a welcome page that does not exist yet (404).
+
+**Bugs found in review and fixed (`c1d7ae6`)**
+- `x-default` hreflang pointed at each page's own language, so the three languages each claimed to be the
+  default. It now points at the default content language (English): `hugo.Sites.Default.Language.Lang` in
+  `layouts/partials/head.html`.
+- The "Reviewed <month year>" line on guides was English on FR/PT pages. `layouts/guides/single.html` now uses
+  `time.Format`, which localises the month.
+- `window.open(url, "_blank", "noopener")` always returns `null`, so the Juriwell form would have opened the
+  welcome page in a new tab *and* navigated the current tab. `assets/js/main.js` now calls
+  `window.open(url, "_blank")` and sets `opener = null`. (Only matters when Juriwell mode is on; verified by
+  reading the spec, not in a browser.)
+
+**Verified on the built site before deploying**
+- Guides: 36 article pages (12 topics × EN/FR/PT) plus a guides index per language, each index listing 12 cards.
+- All 72 JSON-LD blocks parse; no broken internal links; per-language sitemaps list 16 URLs.
+- No built page references Juriwell while the flag is off.
+- Live (curl, after deploy): guide pages return 200, FR date reads "août 2026", `x-default` is English.
+
+**Known and deliberately left alone**
+- About 30 meta descriptions exceed 200 characters and may be truncated in search results. Editorial, not a bug.
+- `site.Data` triggers a Hugo deprecation warning (`hugo.Data` is the replacement). The rest of the site uses the
+  same form, so it was kept consistent; migrate everything together.
+- No `og:image` yet (section 4). Article facts were not re-checked against gov.br in this pass.
+- Search Console / Bing submission of the sitemap has not been done from this repo.
+
+### How to deploy (any time)
+
+`deploy.sh` builds `config.toml` with `--minify` into a temporary worktree of the local `gh-pages` branch,
+copies `CNAME`, commits, and pushes.
+
+```sh
+git checkout main && git pull --ff-only origin main
+git fetch origin
+git log --oneline origin/gh-pages..gh-pages     # must print nothing (no local-only commits)
+git branch -f gh-pages origin/gh-pages          # only if local gh-pages is behind, else the push is rejected
+./deploy.sh
+```
+
+Then verify with `curl` (the `gh` CLI is not installed on this machine):
+
+```sh
+u=https://santoglobaladvisory.com
+curl -s -o /dev/null -w "%{http_code}\n" $u/en/guides/
+curl -s $u/fr/guides/ | grep -o 'hreflang=x-default href=[^> ]*'    # expect .../en/guides/
+```
+
+Published HTML is minified, so attributes are unquoted (`class=guide-card`, not `class="guide-card"`).
+
+---
+
+## 7. Putting Juriwell back — runbook
+
+**Do not start until these are true** (details in section 3):
+
+- [ ] **A1** public `POST /leads` routes to SGA's firm, not the hardcoded `default` tenant. Leads sent before
+      this are not recoverable into SGA's pipeline.
+- [ ] **A2** `https://santoglobaladvisory.com` is in the backend's `CORS_ORIGINS`, or the browser blocks the POST.
+- [ ] **A3** `POST /leads` is rate-limited.
+- [ ] **C1** the page at `welcome_url` exists (otherwise readers land on a 404).
+- [ ] Copy matches reality: if **B1** (guide email) is not built, the guide-delivery wording is untrue; if **C4**
+      (AI agents) is not built, the AI wording is untrue.
+
+**1. Edit `data/juriwell.yaml`**
+
+```yaml
+enabled: true
+endpoint: "https://<juriwell-api-host>/leads"   # must return 2xx; the form treats any non-2xx as failure
+welcome_url: "https://juriwell.com/welcome/santo-global-advisory"   # confirm it resolves
+```
+
+The form POSTs JSON `{email, service, source, message}`. `source` is `sga-guide-<topic-key>`; the topic goes in
+`source` because Juriwell clamps `service` to `tax|immigration|other`.
+
+Leaving `endpoint` empty with `enabled: true` is **not** a production state: the form reports success and opens
+the welcome page but captures nothing.
+
+**2. Review the per-language copy** in the same file (`en:`, `fr:`, `pt:`). Check especially:
+
+- `hook` — mentions AI and quick answers (C4).
+- `note` — "One email with the guide" (B1). `submit` ("Send me the guide") and `success` ("Check your inbox")
+  make the same promise.
+- `title` and `body` — "the full 32-chapter guide".
+
+**3. Build and check locally** (before committing):
+
+```sh
+hugo --config config.toml --destination /tmp/juriwell-check --minify
+grep -rl 'data-jw-form' /tmp/juriwell-check | wc -l    # expect 39 = 36 articles + 3 guide indexes
+grep -o 'data-jw-endpoint=[^ >]*' /tmp/juriwell-check/en/guides/brazil-digital-nomad-visa/index.html
+```
+
+**4. Test in a real browser** against a build served locally or on a preview: submit a test email on one guide
+and confirm (a) the request succeeds with no CORS error, (b) the lead appears in **SGA's** CRM, not `default`,
+(c) the welcome page opens in a new tab and the current tab stays put (the `noopener` fix), (d) the honeypot
+field silently drops a submission when filled.
+
+**5. Ship**: commit, open a PR, merge, then follow "How to deploy" above.
+
+**6. Verify live**: `curl -s https://santoglobaladvisory.com/en/guides/ | grep -c data-jw-form` should be `1`.
+Submit one real test lead in production and confirm it lands in the right tenant.
+
+**Rollback** (needs a merge and a deploy): set `enabled: false`, commit, merge, deploy. Guides revert to the
+standard `final-cta` ending. Leads already captured stay in Juriwell.
